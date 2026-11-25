@@ -1,0 +1,856 @@
+{
+  "generatedAt": "2026-11-25T11:32:50.262Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "browser": "Microsoft Edge / Chromium 158.0.4370.33",
+  "summary": {
+    "passed": 26,
+    "failed": 0,
+    "total": 26
+  },
+  "results": [
+    {
+      "name": "Layout and assets 1920 × 1080",
+      "status": "passed",
+      "durationMs": 4019,
+      "detail": {
+        "width": 1920,
+        "height": 1080,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "brokenImages": [],
+        "visibleSections": 7,
+        "fonts": "loaded",
+        "hiddenReveals": []
+      }
+    },
+    {
+      "name": "Layout and assets 1440 × 900",
+      "status": "passed",
+      "durationMs": 4002,
+      "detail": {
+        "width": 1440,
+        "height": 900,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "brokenImages": [],
+        "visibleSections": 7,
+        "fonts": "loaded",
+        "hiddenReveals": []
+      }
+    },
+    {
+      "name": "Layout and assets 1366 × 768",
+      "status": "passed",
+      "durationMs": 4084,
+      "detail": {
+        "width": 1366,
+        "height": 768,
+        "scrollWidth": 1366,
+        "clientWidth": 1366,
+        "brokenImages": [],
+        "visibleSections": 7,
+        "fonts": "loaded",
+        "hiddenReveals": []
+      }
+    },
+    {
+      "name": "Layout and assets 768 × 1024",
+      "status": "passed",
+      "durationMs": 3924,
+      "detail": {
+        "width": 768,
+        "height": 1024,
+        "scrollWidth": 768,
+        "clientWidth": 768,
+        "brokenImages": [],
+        "visibleSections": 7,
+        "fonts": "loaded",
+        "hiddenReveals": []
+      }
+    },
+    {
+      "name": "Layout and assets 390 × 844",
+      "status": "passed",
+      "durationMs": 4162,
+      "detail": {
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "brokenImages": [],
+        "visibleSections": 7,
+        "fonts": "loaded",
+        "hiddenReveals": []
+      }
+    },
+    {
+      "name": "All internal hash links resolve",
+      "status": "passed",
+      "durationMs": 6,
+      "detail": {
+        "checked": 13
+      }
+    },
+    {
+      "name": "Desktop navigation follows every section link",
+      "status": "passed",
+      "durationMs": 3867
+    },
+    {
+      "name": "Navigation dialog Escape and focus return",
+      "status": "passed",
+      "durationMs": 126
+    },
+    {
+      "name": "Expanded navigation link and close button",
+      "status": "passed",
+      "durationMs": 3783
+    },
+    {
+      "name": "Experience tabs click and keyboard",
+      "status": "passed",
+      "durationMs": 175,
+      "detail": {
+        "tabs": 4,
+        "keyboardKeys": 6
+      }
+    },
+    {
+      "name": "Skills tabs click and keyboard",
+      "status": "passed",
+      "durationMs": 153,
+      "detail": {
+        "tabs": 4,
+        "keyboardKeys": 6
+      }
+    },
+    {
+      "name": "All three project case files and focus return",
+      "status": "passed",
+      "durationMs": 1218
+    },
+    {
+      "name": "External destination syntax and safe new-tab links",
+      "status": "passed",
+      "durationMs": 3,
+      "detail": {
+        "checked": 5,
+        "destinations": [
+          "https://drive.google.com/file/d/1ZrvLxznH8EJylWBG4Q7gAXqxLEty_HUD/view?usp=sharing",
+          "https://drive.google.com/file/d/1KaWO3WTsqk2FLBfPz_pkFx75kcdXLWur/view?usp=sharing",
+          "https://drive.google.com/file/d/1MBAD279i0uMgeCCdjK3-fU3XyGhb6AeY/view?usp=sharing",
+          "https://github.com/kunalmaurya-17-24",
+          "https://www.linkedin.com/in/kunal-maurya-a58035304/"
+        ],
+        "remoteAvailability": "Not requested by this local suite"
+      }
+    },
+    {
+      "name": "Resume HTTP response and real browser download",
+      "status": "passed",
+      "durationMs": 168,
+      "detail": {
+        "bytes": 80173,
+        "filename": "Kunal-Maurya-Resume.pdf"
+      }
+    },
+    {
+      "name": "Real audio controls, preferences and silent reload",
+      "status": "passed",
+      "durationMs": 1876
+    },
+    {
+      "name": "Decorative motion pause control",
+      "status": "passed",
+      "durationMs": 78
+    },
+    {
+      "name": "Education details and clipboard action",
+      "status": "passed",
+      "durationMs": 56
+    },
+    {
+      "name": "Axe desktop page WCAG 2.2 AA",
+      "status": "passed",
+      "durationMs": 171,
+      "detail": {
+        "passedRules": 26,
+        "manualReviewRules": 2
+      }
+    },
+    {
+      "name": "Axe expanded navigation WCAG 2.2 AA",
+      "status": "passed",
+      "durationMs": 42,
+      "detail": {
+        "passedRules": 13,
+        "manualReviewRules": 1
+      }
+    },
+    {
+      "name": "Axe case dialog WCAG 2.2 AA",
+      "status": "passed",
+      "durationMs": 39,
+      "detail": {
+        "passedRules": 15,
+        "manualReviewRules": 0
+      }
+    },
+    {
+      "name": "Brief scroll performance trace",
+      "status": "passed",
+      "durationMs": 875,
+      "detail": {
+        "file": "docs/performance-scroll-trace.json",
+        "elapsedMs": 628.5999999996275,
+        "traceBytes": 3870382,
+        "rendererIdentified": true,
+        "rendererTasksOver50ms": [],
+        "longestRendererTaskMs": 2.411,
+        "layoutEvents": 43,
+        "paintEvents": 156
+      }
+    },
+    {
+      "name": "Axe mobile page WCAG 2.2 AA",
+      "status": "passed",
+      "durationMs": 171,
+      "detail": {
+        "passedRules": 26,
+        "manualReviewRules": 2
+      }
+    },
+    {
+      "name": "Mobile touch navigation and project dialog",
+      "status": "passed",
+      "durationMs": 3153
+    },
+    {
+      "name": "Reduced motion removes decorative animation and preserves content",
+      "status": "passed",
+      "durationMs": 1994,
+      "detail": {
+        "running": [],
+        "hiddenReveals": 0,
+        "heroTransform": "none",
+        "introDisplay": "none"
+      }
+    },
+    {
+      "name": "Denied localStorage and sessionStorage remain functional",
+      "status": "passed",
+      "durationMs": 2331
+    },
+    {
+      "name": "Console, uncaught errors, HTTP failures and broken requests",
+      "status": "passed",
+      "durationMs": 0
+    }
+  ],
+  "viewports": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "brokenImages": [],
+      "visibleSections": 7,
+      "fonts": "loaded",
+      "hiddenReveals": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "brokenImages": [],
+      "visibleSections": 7,
+      "fonts": "loaded",
+      "hiddenReveals": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "brokenImages": [],
+      "visibleSections": 7,
+      "fonts": "loaded",
+      "hiddenReveals": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "brokenImages": [],
+      "visibleSections": 7,
+      "fonts": "loaded",
+      "hiddenReveals": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "brokenImages": [],
+      "visibleSections": 7,
+      "fonts": "loaded",
+      "hiddenReveals": []
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "desktop-page",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "help": "Elements must only use permitted ARIA attributes",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "count": 45
+        }
+      ],
+      "passes": 26
+    },
+    {
+      "name": "desktop-menu",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "count": 13
+        }
+      ],
+      "passes": 13
+    },
+    {
+      "name": "desktop-case",
+      "violations": [],
+      "incomplete": [],
+      "passes": 15
+    },
+    {
+      "name": "mobile-page",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "help": "Elements must only use permitted ARIA attributes",
+          "count": 1
+        },
+        {
+          "id": "color-contrast",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "count": 39
+        }
+      ],
+      "passes": 26
+    }
+  ],
+  "performance": [
+    {
+      "viewport": "1920×1080",
+      "navigation": [
+        {
+          "domContentLoadedMs": 64.20000000111759,
+          "transferBytes": 889
+        }
+      ],
+      "largestContentfulPaint": {
+        "startTimeMs": 580,
+        "renderTimeMs": 580,
+        "loadTimeMs": 0,
+        "size": 431934,
+        "element": "span"
+      },
+      "resources": [
+        {
+          "name": "/assets/index-BSIlUtZC.js",
+          "type": "script",
+          "transferredBytes": 12908,
+          "encodedBytes": 12608,
+          "decodedBytes": 33455,
+          "durationMs": 10.299999998882413
+        },
+        {
+          "name": "/assets/index-BWi9MHGr.css",
+          "type": "link",
+          "transferredBytes": 10548,
+          "encodedBytes": 10248,
+          "decodedBytes": 46511,
+          "durationMs": 10.699999999254942
+        },
+        {
+          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 9
+        },
+        {
+          "name": "/audio/track.json",
+          "type": "fetch",
+          "transferredBytes": 501,
+          "encodedBytes": 201,
+          "decodedBytes": 201,
+          "durationMs": 4.300000000745058
+        },
+        {
+          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "type": "css",
+          "transferredBytes": 13612,
+          "encodedBytes": 13312,
+          "decodedBytes": 13312,
+          "durationMs": 9.300000000745058
+        },
+        {
+          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 9.699999999254942
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 10.599999999627471
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "type": "css",
+          "transferredBytes": 22744,
+          "encodedBytes": 22444,
+          "decodedBytes": 22444,
+          "durationMs": 10
+        },
+        {
+          "name": "/favicon.svg",
+          "type": "other",
+          "transferredBytes": 480,
+          "encodedBytes": 180,
+          "decodedBytes": 180,
+          "durationMs": 3.300000000745058
+        }
+      ],
+      "resourceTransferBytes": 110829,
+      "longTasks": [],
+      "cumulativeLayoutShift": 0.04587620658593045,
+      "postScrollCumulativeLayoutShift": 0.04587620658593045
+    },
+    {
+      "viewport": "1440×900",
+      "navigation": [
+        {
+          "domContentLoadedMs": 50.30000000074506,
+          "transferBytes": 889
+        }
+      ],
+      "largestContentfulPaint": {
+        "startTimeMs": 216,
+        "renderTimeMs": 216,
+        "loadTimeMs": 0,
+        "size": 246186,
+        "element": "span"
+      },
+      "resources": [
+        {
+          "name": "/assets/index-BSIlUtZC.js",
+          "type": "script",
+          "transferredBytes": 12908,
+          "encodedBytes": 12608,
+          "decodedBytes": 33455,
+          "durationMs": 10.199999999254942
+        },
+        {
+          "name": "/assets/index-BWi9MHGr.css",
+          "type": "link",
+          "transferredBytes": 10548,
+          "encodedBytes": 10248,
+          "decodedBytes": 46511,
+          "durationMs": 9.600000001490116
+        },
+        {
+          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 11.399999998509884
+        },
+        {
+          "name": "/audio/track.json",
+          "type": "fetch",
+          "transferredBytes": 501,
+          "encodedBytes": 201,
+          "decodedBytes": 201,
+          "durationMs": 3.099999999627471
+        },
+        {
+          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "type": "css",
+          "transferredBytes": 13612,
+          "encodedBytes": 13312,
+          "decodedBytes": 13312,
+          "durationMs": 5.5
+        },
+        {
+          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 7.400000000372529
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 10.400000000372529
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "type": "css",
+          "transferredBytes": 22744,
+          "encodedBytes": 22444,
+          "decodedBytes": 22444,
+          "durationMs": 10.599999999627471
+        },
+        {
+          "name": "/favicon.svg",
+          "type": "other",
+          "transferredBytes": 480,
+          "encodedBytes": 180,
+          "decodedBytes": 180,
+          "durationMs": 3
+        }
+      ],
+      "resourceTransferBytes": 110829,
+      "longTasks": [
+        {
+          "duration": 50,
+          "startTime": 189.5
+        }
+      ],
+      "cumulativeLayoutShift": 0.042656571547190346,
+      "postScrollCumulativeLayoutShift": 0.042656571547190346
+    },
+    {
+      "viewport": "1366×768",
+      "navigation": [
+        {
+          "domContentLoadedMs": 36.80000000074506,
+          "transferBytes": 889
+        }
+      ],
+      "largestContentfulPaint": {
+        "startTimeMs": 184,
+        "renderTimeMs": 184,
+        "loadTimeMs": 0,
+        "size": 221343,
+        "element": "span"
+      },
+      "resources": [
+        {
+          "name": "/assets/index-BSIlUtZC.js",
+          "type": "script",
+          "transferredBytes": 12908,
+          "encodedBytes": 12608,
+          "decodedBytes": 33455,
+          "durationMs": 9
+        },
+        {
+          "name": "/assets/index-BWi9MHGr.css",
+          "type": "link",
+          "transferredBytes": 10548,
+          "encodedBytes": 10248,
+          "decodedBytes": 46511,
+          "durationMs": 9.099999999627471
+        },
+        {
+          "name": "/audio/track.json",
+          "type": "fetch",
+          "transferredBytes": 501,
+          "encodedBytes": 201,
+          "decodedBytes": 201,
+          "durationMs": 2.699999999254942
+        },
+        {
+          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 3.599999999627471
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 123.10000000149012
+        },
+        {
+          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 123.90000000037253
+        },
+        {
+          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "type": "css",
+          "transferredBytes": 13612,
+          "encodedBytes": 13312,
+          "decodedBytes": 13312,
+          "durationMs": 124.19999999925494
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "type": "css",
+          "transferredBytes": 22744,
+          "encodedBytes": 22444,
+          "decodedBytes": 22444,
+          "durationMs": 124.39999999850988
+        },
+        {
+          "name": "/favicon.svg",
+          "type": "other",
+          "transferredBytes": 480,
+          "encodedBytes": 180,
+          "decodedBytes": 180,
+          "durationMs": 3.900000000372529
+        }
+      ],
+      "resourceTransferBytes": 110829,
+      "longTasks": [],
+      "cumulativeLayoutShift": 0.04281617263104607,
+      "postScrollCumulativeLayoutShift": 0.04281617263104607
+    },
+    {
+      "viewport": "768×1024",
+      "navigation": [
+        {
+          "domContentLoadedMs": 49.09999999962747,
+          "transferBytes": 889
+        }
+      ],
+      "largestContentfulPaint": {
+        "startTimeMs": 172,
+        "renderTimeMs": 172,
+        "loadTimeMs": 0,
+        "size": 126654,
+        "element": "span"
+      },
+      "resources": [
+        {
+          "name": "/assets/index-BSIlUtZC.js",
+          "type": "script",
+          "transferredBytes": 12908,
+          "encodedBytes": 12608,
+          "decodedBytes": 33455,
+          "durationMs": 9.099999999627471
+        },
+        {
+          "name": "/assets/index-BWi9MHGr.css",
+          "type": "link",
+          "transferredBytes": 10548,
+          "encodedBytes": 10248,
+          "decodedBytes": 46511,
+          "durationMs": 9.200000001117587
+        },
+        {
+          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 8.599999999627471
+        },
+        {
+          "name": "/audio/track.json",
+          "type": "fetch",
+          "transferredBytes": 501,
+          "encodedBytes": 201,
+          "decodedBytes": 201,
+          "durationMs": 2.5
+        },
+        {
+          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "type": "css",
+          "transferredBytes": 13612,
+          "encodedBytes": 13312,
+          "decodedBytes": 13312,
+          "durationMs": 5
+        },
+        {
+          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 6.799999998882413
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 7.899999998509884
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "type": "css",
+          "transferredBytes": 22744,
+          "encodedBytes": 22444,
+          "decodedBytes": 22444,
+          "durationMs": 8.099999999627471
+        },
+        {
+          "name": "/favicon.svg",
+          "type": "other",
+          "transferredBytes": 480,
+          "encodedBytes": 180,
+          "decodedBytes": 180,
+          "durationMs": 2.600000001490116
+        }
+      ],
+      "resourceTransferBytes": 110829,
+      "longTasks": [],
+      "cumulativeLayoutShift": 0.03321127680828795,
+      "postScrollCumulativeLayoutShift": 0.03321127680828795
+    },
+    {
+      "viewport": "390×844",
+      "navigation": [
+        {
+          "domContentLoadedMs": 29.5,
+          "transferBytes": 889
+        }
+      ],
+      "largestContentfulPaint": {
+        "startTimeMs": 144,
+        "renderTimeMs": 144,
+        "loadTimeMs": 0,
+        "size": 41170,
+        "element": "span"
+      },
+      "resources": [
+        {
+          "name": "/assets/index-BSIlUtZC.js",
+          "type": "script",
+          "transferredBytes": 12908,
+          "encodedBytes": 12608,
+          "decodedBytes": 33455,
+          "durationMs": 6.800000000745058
+        },
+        {
+          "name": "/assets/index-BWi9MHGr.css",
+          "type": "link",
+          "transferredBytes": 10548,
+          "encodedBytes": 10248,
+          "decodedBytes": 46511,
+          "durationMs": 7.099999999627471
+        },
+        {
+          "name": "/audio/track.json",
+          "type": "fetch",
+          "transferredBytes": 501,
+          "encodedBytes": 201,
+          "decodedBytes": 201,
+          "durationMs": 2.399999998509884
+        },
+        {
+          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 4.400000000372529
+        },
+        {
+          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 4.800000000745058
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 5.099999999627471
+        },
+        {
+          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "type": "css",
+          "transferredBytes": 13612,
+          "encodedBytes": 13312,
+          "decodedBytes": 13312,
+          "durationMs": 5.200000001117587
+        },
+        {
+          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "type": "css",
+          "transferredBytes": 22744,
+          "encodedBytes": 22444,
+          "decodedBytes": 22444,
+          "durationMs": 5.199999999254942
+        },
+        {
+          "name": "/favicon.svg",
+          "type": "other",
+          "transferredBytes": 480,
+          "encodedBytes": 180,
+          "decodedBytes": 180,
+          "durationMs": 2.600000001490116
+        }
+      ],
+      "resourceTransferBytes": 110829,
+      "longTasks": [
+        {
+          "duration": 91,
+          "startTime": 34
+        }
+      ],
+      "cumulativeLayoutShift": 0.03925010988324607,
+      "postScrollCumulativeLayoutShift": 0.03925010988324607
+    }
+  ],
+  "scrollTrace": {
+    "file": "docs/performance-scroll-trace.json",
+    "elapsedMs": 628.5999999996275,
+    "traceBytes": 3870382,
+    "rendererIdentified": true,
+    "rendererTasksOver50ms": [],
+    "longestRendererTaskMs": 2.411,
+    "layoutEvents": 43,
+    "paintEvents": 156
+  },
+  "diagnostics": [],
+  "limitations": [
+    "Automated checks use real Chromium-based Microsoft Edge. Safari, Firefox and physical mobile devices were not available and are not claimed as tested.",
+    "Axe detects a subset of accessibility problems; incomplete rules require manual visual review. No full WCAG certification is claimed.",
+    "External GitHub, LinkedIn and certificate URLs are checked for valid destination syntax and safe new-tab attributes. Remote availability and source-content verification are outside this local regression suite.",
+    "Performance timings are local observations, not Lighthouse scores or representative field measurements.",
+    "Audio engine state and scheduled playback are tested; headless execution does not constitute a human listening review."
+  ]
+}

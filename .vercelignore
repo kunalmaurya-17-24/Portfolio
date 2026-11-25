@@ -1,0 +1,12 @@
+node_modules
+dist
+tmp
+docs/evidence
+docs/screenshots
+docs/performance-scroll-trace.json
+*.pdf
+*.jpg
+*.png
+*.webp
+*.zip
+!public/**

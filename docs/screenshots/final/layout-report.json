@@ -1,0 +1,52 @@
+[
+  {
+    "width": 1920,
+    "viewportHeight": 1080,
+    "clientWidth": 1920,
+    "scrollWidth": 1920,
+    "pageHeight": 6934,
+    "fonts": "loaded",
+    "unrevealed": 0,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "viewportHeight": 900,
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "pageHeight": 6528,
+    "fonts": "loaded",
+    "unrevealed": 0,
+    "errors": []
+  },
+  {
+    "width": 1366,
+    "viewportHeight": 768,
+    "clientWidth": 1366,
+    "scrollWidth": 1366,
+    "pageHeight": 6436,
+    "fonts": "loaded",
+    "unrevealed": 0,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "viewportHeight": 1024,
+    "clientWidth": 768,
+    "scrollWidth": 768,
+    "pageHeight": 7224,
+    "fonts": "loaded",
+    "unrevealed": 0,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "viewportHeight": 844,
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "pageHeight": 7730,
+    "fonts": "loaded",
+    "unrevealed": 0,
+    "errors": []
+  }
+]

@@ -1,27 +1,17 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+node_modules/
+dist/
+tmp/
+.env*
+!.env.example
+.vercel/
+/*.pdf
+/*.jpg
+/*.png
+/*.webp
+/*.zip
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-
-.env
+docs/evidence/
+docs/screenshots/pass-*/
+docs/screenshots/debug-full.png
+docs/screenshots/return-to-top.png
+docs/performance-scroll-trace.json
