@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-25",
+  "method": "HTTP HEAD, no authentication",
+  "checks": [
+    {
+      "url": "https://github.com/kunalmaurya-17-24",
+      "status": 200
+    },
+    {
+      "url": "https://github.com/kunalmaurya-17-24/ATS-Resume-Tailoring-Agent/tree/main",
+      "status": 200
+    },
+    {
+      "url": "https://www.linkedin.com/in/kunal-maurya-a58035304/",
+      "status": 405,
+      "note": "HEAD is not supported by LinkedIn. Destination matches resume annotation; profile access was not independently verified."
+    },
+    {
+      "url": "https://drive.google.com/file/d/1ZrvLxznH8EJylWBG4Q7gAXqxLEty_HUD/view?usp=sharing",
+      "status": 200
+    },
+    {
+      "url": "https://drive.google.com/file/d/1KaWO3WTsqk2FLBfPz_pkFx75kcdXLWur/view?usp=sharing",
+      "status": 200
+    },
+    {
+      "url": "https://drive.google.com/file/d/1MBAD279i0uMgeCCdjK3-fU3XyGhb6AeY/view?usp=sharing",
+      "status": 200
+    }
+  ]
+}
