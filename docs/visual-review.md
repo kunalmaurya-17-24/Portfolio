@@ -59,6 +59,14 @@ No material visual blocker remains in the inspected final evidence. The finished
 
 This is a visual-review signoff for the inspected outputs, not a claim of an award, a guarantee of identical rendering in every browser, or an independent certification of factual content and external-link availability. Continue to use the separate testing results for behavioral and production-build verification.
 
+## 26 November 2026 — CV and playlist refresh
+
+The independent reviewer inspected the refreshed [desktop full page](screenshots/final/1440x900-full.png), [phone full page](screenshots/final/390x844-full.png), [tablet full page](screenshots/final/768x1024-full.png), large and standard desktop heroes, and the new [CrossSense phone case file](screenshots/final/mobile-case.png). The updated factual dossier, three new project compositions, three employment records and expanded education/credentials remain readable across the inspected layouts. The CV's ABOUT ME summary has not been imported into the dossier.
+
+The reviewer also opened the actual [desktop playlist screenshot](screenshots/final/audio-desktop.png) and [phone playlist screenshot](screenshots/final/audio-mobile.png). Track selection, position, previous/next buttons, volume and mute fit within both viewports without clipping. The panel covers underlying hero artwork only while expanded, leaving its toggle accessible. No material new visual issue was found.
+
+The updated general browser regression suite passed **30 of 30 checks** against the local development server, including both MP3 files' real browser decoding and advancing playback time, silent reload, stored track/volume/mute preferences, background pause, the current public PDF download, source-backed CV anchors and six Axe audit states. See the generated [QA results](qa-results.md) for the latest target and run details; visual review does not substitute for those behavioral checks.
+
 ## Review scope and limits
 
 The supplied game/anime/fan-collage imagery informed art direction and was not mistaken for the owner's portrait or software screenshots. The implementation's original mask and technical diagrams avoid that identity/provenance problem. Static visual review does not independently certify every professional link, audio state or browser engine. Those claims belong to the separate validation evidence, not this visual assessment.

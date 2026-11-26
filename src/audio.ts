@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
-/** Original, sample-free instrumental. No audio runs before the visitor presses Play. */
-type TrackConfig = { src: string | null; title: string; artist: string; license: string };
+/** Optional audio playlist. Playback always starts with an explicit visitor interaction. */
+type TrackConfig = { id: string; src: string | null; title: string; artist: string; license: string };
 type AudioEngine = {
   start: () => Promise<void>;
   pause: () => void;
@@ -9,6 +9,7 @@ type AudioEngine = {
 };
 
 const DEFAULT_TRACK: TrackConfig = {
+  id: 'after-hours',
   src: null,
   title: 'After Hours',
   artist: 'Original instrumental',
@@ -30,6 +31,7 @@ class OriginalInstrumental implements AudioEngine {
   private level = 0.28;
   private running = false;
   private disposed = false;
+  private operation = 0;
 
   constructor() {
     // Construction is called only by the explicit Play handler.
@@ -56,9 +58,10 @@ class OriginalInstrumental implements AudioEngine {
 
   async start() {
     if (this.disposed) throw new Error('Audio has been closed.');
+    const attempt = ++this.operation;
     clearTimeout(this.pauseTimer);
     await this.context.resume();
-    if (this.disposed) return;
+    if (this.disposed || attempt !== this.operation) return;
     this.running = true;
     this.setLevel(this.level);
     this.nextNote = this.context.currentTime + 0.045;
@@ -164,6 +167,7 @@ class OriginalInstrumental implements AudioEngine {
   }
 
   pause() {
+    this.operation++;
     this.running = false;
     clearInterval(this.scheduler);
     const time = this.context.currentTime;
@@ -189,6 +193,7 @@ class OriginalInstrumental implements AudioEngine {
   }
 
   dispose() {
+    this.operation++;
     this.disposed = true;
     this.running = false;
     clearInterval(this.scheduler);
@@ -198,22 +203,33 @@ class OriginalInstrumental implements AudioEngine {
   }
 }
 
-class AuthorizedFile implements AudioEngine {
+class FileTrack implements AudioEngine {
   private element: HTMLAudioElement;
   private frame = 0;
   private level = 0.28;
   private playing = false;
+  private disposed = false;
+  private generation = 0;
 
-  constructor(src: string) {
+  constructor(src: string, container: HTMLElement) {
     this.element = new Audio(src);
     this.element.loop = true;
     this.element.preload = 'none';
     this.element.volume = 0;
+    // During a crossfade, only the newly selected media element has the public ID.
+    document.getElementById('audio-media')?.removeAttribute('id');
+    this.element.id = 'audio-media';
+    this.element.hidden = true;
+    this.element.setAttribute('aria-hidden', 'true');
+    container.append(this.element);
   }
 
   async start() {
+    if (this.disposed) throw new Error('Audio has been closed.');
+    const attempt = ++this.generation;
     cancelAnimationFrame(this.frame);
     await this.element.play();
+    if (this.disposed || attempt !== this.generation) return;
     this.playing = true;
     this.ramp(this.level);
   }
@@ -232,8 +248,10 @@ class AuthorizedFile implements AudioEngine {
   }
 
   pause() {
+    this.generation++;
+    const wasPlaying = this.playing;
     this.playing = false;
-    if (document.hidden) {
+    if (document.hidden || !wasPlaying) {
       cancelAnimationFrame(this.frame);
       this.element.volume = 0;
       this.element.pause();
@@ -248,10 +266,13 @@ class AuthorizedFile implements AudioEngine {
   }
 
   dispose() {
+    this.disposed = true;
+    this.generation++;
     cancelAnimationFrame(this.frame);
     this.element.pause();
     this.element.removeAttribute('src');
     this.element.load();
+    this.element.remove();
   }
 }
 
@@ -263,14 +284,22 @@ export function initAudio(): () => void {
   const status = document.getElementById('audio-status');
   const player = document.getElementById('audio-player');
   if (!toggle || !mute || !slider || !title || !status || !player) return () => {};
-
+  const selector = document.getElementById('audio-track-select') as HTMLSelectElement | null;
+  const previous = document.getElementById('audio-prev') as HTMLButtonElement | null;
+  const next = document.getElementById('audio-next') as HTMLButtonElement | null;
+  const position = document.getElementById('audio-track-position');
   let volume = 0.28;
   let muted = false;
   let playing = false;
+  let wantsPlayback = false;
   let busy = false;
+  let loading = true;
   let disposed = false;
   let engine: AudioEngine | undefined;
-  let track = { ...DEFAULT_TRACK };
+  let retired: { engine: AudioEngine; timer: ReturnType<typeof setTimeout> } | undefined;
+  let tracks = [{ ...DEFAULT_TRACK }];
+  let selectedId = DEFAULT_TRACK.id;
+  let storedTrackId: string | undefined;
   let message = 'Sound off';
   let generation = 0;
   try {
@@ -278,21 +307,34 @@ export function initAudio(): () => void {
     if (stored && typeof stored === 'object') {
       if (typeof stored.volume === 'number' && Number.isFinite(stored.volume)) volume = clamp(stored.volume);
       if (typeof stored.muted === 'boolean') muted = stored.muted;
+      if (typeof stored.trackId === 'string') storedTrackId = stored.trackId;
     }
   } catch { /* Storage can be disabled in privacy modes. */ }
 
   const persist = () => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ volume, muted })); } catch { /* Optional preference storage. */ }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ volume, muted, trackId: selectedId })); } catch { /* Optional preference storage. */ }
+  };
+  const currentTrack = () => tracks.find(track => track.id === selectedId) || tracks[0];
+  const updateOptions = () => {
+    if (!selector) return;
+    selector.replaceChildren(...tracks.map(track => {
+      const option = document.createElement('option');
+      option.value = track.id;
+      option.textContent = track.title;
+      return option;
+    }));
   };
   const render = () => {
-    toggle.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
-    toggle.setAttribute('aria-pressed', String(playing));
-    toggle.disabled = busy;
+    const track = currentTrack();
+    toggle.setAttribute('aria-label', busy ? 'Cancel music playback' : playing ? 'Pause music' : 'Play music');
+    toggle.setAttribute('aria-pressed', String(wantsPlayback));
+    toggle.setAttribute('aria-busy', String(busy));
+    toggle.disabled = loading;
     toggle.dataset.playing = String(playing);
     const buttonIcon = toggle.querySelector('[data-audio-icon]');
-    if (buttonIcon) buttonIcon.textContent = playing ? 'Ⅱ' : '▶';
+    if (buttonIcon) buttonIcon.textContent = wantsPlayback ? 'Ⅱ' : '▶';
     const buttonText = toggle.querySelector('[data-audio-label]');
-    if (buttonText) buttonText.textContent = playing ? 'PAUSE' : 'PLAY';
+    if (buttonText) buttonText.textContent = wantsPlayback ? 'PAUSE' : 'PLAY';
     mute.setAttribute('aria-label', muted || volume === 0 ? 'Unmute music' : 'Mute music');
     mute.setAttribute('aria-pressed', String(muted || volume === 0));
     mute.dataset.muted = String(muted || volume === 0);
@@ -300,46 +342,111 @@ export function initAudio(): () => void {
     if (muteText) muteText.textContent = muted || volume === 0 ? 'UNMUTE' : 'MUTE';
     slider.value = String(Math.round(volume * 100));
     slider.setAttribute('aria-valuetext', `${Math.round(volume * 100)} percent`);
-    title.textContent = `${track.title} / ${track.artist}`;
-    status.textContent = playing ? (muted || volume === 0 ? 'Playing · muted' : 'Now playing') : message;
+    title.textContent = loading ? 'Loading soundtrack' : [track.title, track.artist].filter(Boolean).join(' / ');
+    status.textContent = loading ? 'Preparing playlist' : busy ? message : playing ? (muted || volume === 0 ? 'Playing · muted' : 'Now playing') : message;
     player.dataset.playing = String(playing);
     player.dataset.muted = String(muted || volume === 0);
     player.dataset.source = track.src ? 'file' : 'original';
+    player.dataset.track = track.id;
+    player.dataset.configReady = String(!loading);
+    player.dataset.loading = String(busy || loading);
+    if (selector) {
+      selector.value = selectedId;
+      selector.disabled = loading || tracks.length < 2;
+    }
+    if (previous) previous.disabled = loading || tracks.length < 2;
+    if (next) next.disabled = loading || tracks.length < 2;
+    if (position) position.textContent = `${String(tracks.findIndex(track => track.id === selectedId) + 1).padStart(2, '0')} / ${String(tracks.length).padStart(2, '0')}`;
   };
   const applyLevel = () => engine?.setLevel(muted ? 0 : volume);
+  const clearRetired = () => {
+    if (!retired) return;
+    clearTimeout(retired.timer);
+    retired.engine.dispose();
+    retired = undefined;
+  };
+  const retire = (oldEngine: AudioEngine, fade: boolean) => {
+    // At most one fading-out track may coexist with the selected track.
+    clearRetired();
+    oldEngine.pause();
+    if (!fade || document.hidden) { oldEngine.dispose(); return; }
+    const timer = setTimeout(() => {
+      oldEngine.dispose();
+      if (retired?.engine === oldEngine) retired = undefined;
+    }, 230);
+    retired = { engine: oldEngine, timer };
+  };
   const pause = (reason = 'Paused') => {
     generation++;
     engine?.pause();
+    clearRetired();
     playing = false;
+    wantsPlayback = false;
     busy = false;
     message = reason;
     render();
   };
-  const onToggle = async () => {
-    if (playing) { pause(); return; }
-    if (busy || disposed) return;
+  const startCurrent = async () => {
+    if (loading || disposed) return;
     const attempt = ++generation;
+    let candidate = engine;
+    wantsPlayback = true;
+    playing = false;
     busy = true;
     message = 'Starting audio';
     render();
     try {
-      // This is the only creation path and is reached by an explicit user gesture.
-      engine ??= track.src ? new AuthorizedFile(track.src) : new OriginalInstrumental();
+      // Every creation/play path originates in Play, selection, or previous/next interaction.
+      const track = currentTrack();
+      candidate ??= track.src ? new FileTrack(track.src, player) : new OriginalInstrumental();
+      engine = candidate;
       applyLevel();
-      await engine.start();
-      if (disposed || attempt !== generation) { engine.pause(); return; }
+      await candidate.start();
+      if (disposed || attempt !== generation || engine !== candidate) return;
       playing = true;
       message = 'Now playing';
     } catch {
+      // An obsolete play promise must never alter a newer selection or its playback.
+      if (disposed || attempt !== generation || engine !== candidate) return;
       playing = false;
+      wantsPlayback = false;
       message = 'Audio unavailable · try again';
-      engine?.dispose();
+      candidate?.dispose();
       engine = undefined;
     } finally {
-      busy = false;
-      if (!disposed) render();
+      if (!disposed && attempt === generation) {
+        busy = false;
+        render();
+      }
     }
   };
+  const onToggle = () => {
+    if (wantsPlayback || playing || busy) pause();
+    else void startCurrent();
+  };
+  const selectTrack = (id: string) => {
+    if (loading || disposed || id === selectedId || !tracks.some(track => track.id === id)) return;
+    const resume = wantsPlayback || playing || busy;
+    generation++;
+    if (engine) retire(engine, playing);
+    else clearRetired();
+    engine = undefined;
+    selectedId = id;
+    playing = false;
+    wantsPlayback = false;
+    busy = false;
+    message = resume ? 'Switching track' : 'Ready · press play';
+    persist();
+    render();
+    if (resume) void startCurrent();
+  };
+  const onSelection = () => { if (selector) selectTrack(selector.value); };
+  const skip = (direction: number) => {
+    const index = tracks.findIndex(track => track.id === selectedId);
+    selectTrack(tracks[(index + direction + tracks.length) % tracks.length].id);
+  };
+  const onPrevious = () => skip(-1);
+  const onNext = () => skip(1);
   const onMute = () => {
     if (volume === 0 && !muted) { volume = 0.28; muted = false; }
     else muted = !muted;
@@ -361,37 +468,78 @@ export function initAudio(): () => void {
   toggle.addEventListener('click', onToggle);
   mute.addEventListener('click', onMute);
   slider.addEventListener('input', onVolume);
+  selector?.addEventListener('change', onSelection);
+  previous?.addEventListener('click', onPrevious);
+  next?.addEventListener('click', onNext);
   document.addEventListener('visibilitychange', onVisibility);
   window.addEventListener('pagehide', onPageHide);
+  updateOptions();
   render();
 
   const configRequest = new AbortController();
+  const configTimeout = setTimeout(() => configRequest.abort(), 4000);
+  const parseTrack = (input: unknown, index: number): TrackConfig | null => {
+    if (!input || typeof input !== 'object') return null;
+    const value = input as Record<string, unknown>;
+    const title = typeof value.title === 'string' ? value.title.trim() : '';
+    if (!title) return null;
+    let src: string | null = null;
+    if (typeof value.src === 'string' && value.src.trim()) {
+      try {
+        const url = new URL(value.src.trim(), new URL(import.meta.env.BASE_URL, location.href));
+        if (!['http:', 'https:'].includes(url.protocol)) return null;
+        src = url.href;
+      } catch { return null; }
+    } else if (value.src !== null) return null;
+    return {
+      id: typeof value.id === 'string' && value.id.trim() ? value.id.trim() : `track-${index + 1}`,
+      src,
+      title,
+      artist: typeof value.artist === 'string' && value.artist.trim() ? value.artist.trim() : src ? '' : DEFAULT_TRACK.artist,
+      license: typeof value.license === 'string' ? value.license : '',
+    };
+  };
   void fetch(`${import.meta.env.BASE_URL}audio/track.json`, { signal: configRequest.signal })
     .then((response) => response.ok ? response.json() : null)
     .then((config: unknown) => {
-      if (disposed || engine || !config || typeof config !== 'object') return;
+      if (disposed || !config || typeof config !== 'object') return;
       const value = config as Record<string, unknown>;
-      // Only normal local/HTTP media URLs are accepted; never evaluate configuration as code.
-      const src = typeof value.src === 'string' && value.src.trim() ? value.src.trim() : null;
-      if (src && !['http:', 'https:'].includes(new URL(src, location.href).protocol)) return;
-      track = {
-        src,
-        title: typeof value.title === 'string' && value.title.trim() ? value.title : DEFAULT_TRACK.title,
-        artist: typeof value.artist === 'string' && value.artist.trim() ? value.artist : DEFAULT_TRACK.artist,
-        license: typeof value.license === 'string' ? value.license : '',
-      };
-      render();
+      // Accept the playlist format and the previous single-track configuration.
+      const candidates = Array.isArray(value.tracks) ? value.tracks : [value];
+      const ids = new Set<string>();
+      const parsed = candidates.map(parseTrack).filter((track): track is TrackConfig => {
+        if (!track || ids.has(track.id)) return false;
+        ids.add(track.id);
+        return true;
+      });
+      if (!parsed.length) return;
+      tracks = parsed;
+      const preferred = storedTrackId && tracks.some(track => track.id === storedTrackId) ? storedTrackId : value.defaultTrack;
+      selectedId = typeof preferred === 'string' && tracks.some(track => track.id === preferred) ? preferred : tracks[0].id;
     })
-    .catch(() => { /* The optional configuration falls back to the original instrumental. */ });
+    .catch(() => { /* Missing/invalid configuration falls back to the original instrumental. */ })
+    .finally(() => {
+      clearTimeout(configTimeout);
+      if (disposed) return;
+      loading = false;
+      updateOptions();
+      persist();
+      render();
+    });
 
   return () => {
     disposed = true;
     generation++;
+    clearTimeout(configTimeout);
     configRequest.abort();
     engine?.dispose();
+    clearRetired();
     toggle.removeEventListener('click', onToggle);
     mute.removeEventListener('click', onMute);
     slider.removeEventListener('input', onVolume);
+    selector?.removeEventListener('change', onSelection);
+    previous?.removeEventListener('click', onPrevious);
+    next?.removeEventListener('click', onNext);
     document.removeEventListener('visibilitychange', onVisibility);
     window.removeEventListener('pagehide', onPageHide);
   };

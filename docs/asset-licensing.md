@@ -12,7 +12,7 @@ Do not deploy the entire workspace. Deploy only the generated `dist/` directory 
 
 The signal-mask emblem in `src/main.ts`, the `KM` identity, `public/favicon.svg`, stars, paper silhouettes, project workflow diagrams, waveform treatment, CSS halftones, and layouts were authored for this portfolio. They are original geometric/interface compositions rather than extracted Persona game artwork or traced franchise logos. The mask is an abstract graphic, not a portrait of Kunal.
 
-The project illustrations are labeled **conceptual**. They are not presented as authentic screenshots of employer products. Chirpn and FrugalX are credited with their professional work, and the application does not distribute employer source code or imply public repository access.
+The project illustrations are labeled **conceptual**. They are not presented as authentic screenshots of employer products. Employment records are presented separately from the three CV-listed personal project repositories. The application does not distribute employer source code.
 
 No general open-source license has been assigned to the portfolio application source by this project. Dependencies retain their own licenses; the documentation does not grant rights to the supplied third-party reference material.
 
@@ -31,13 +31,13 @@ The downloadable resume is separately typeset as a PDF with embedded subset Aria
 
 ## Audio
 
-**After Hours / Original instrumental** is a procedural composition authored in `src/audio.ts` using oscillator tones and a generated deterministic noise buffer. It includes no third-party samples, Persona recording, franchise melody, or transcription. The title is interface metadata for this original composition, not a claim to any similarly titled commercial recording.
+The owner supplied `Persona 5 - Life Will Change (中英歌詞).mp3` and `Persona 5 - Last Surprise.mp3` in `public/audio/` and explicitly requested their integration and GitHub push on 26 November 2026. The playlist uses those existing files; no audio was downloaded for this update. These are third-party recordings, not original portfolio compositions, and their copyright remains with the relevant rights holders. No independent redistribution license has been verified or granted by this documentation.
 
-No audio file was present among the supplied assets, and no game soundtrack was downloaded. The player supports an authorized replacement via `public/audio/track.json`. The `license` field is descriptive metadata; writing permission text into JSON does not itself establish rights. The owner must supply a valid authorization for any replacement track before public redistribution. See [audio configuration](audio.md).
+The original sample-free **After Hours** synth remains a configurable fallback in `src/audio.ts`; it is not a Persona recording or transcription. See [audio configuration](audio.md) for the playlist format and playback behavior.
 
 ## Resume and public contact information
 
-`public/Kunal-Maurya-Resume.pdf` is a sanitized, freshly typeset derivative of the owner's supplied resume. The original PDF remains unchanged outside the deployed bundle. The derivative omits the phone number, includes only the general city and professional contact destinations, and contains no residential street address or identification number. Its factual claims come from the source resume.
+`public/Kunal-Maurya-Resume.pdf` is a sanitized, freshly typeset three-page derivative of the latest Europass CV, with its summary omitted. The original PDF remains unchanged outside the deployed bundle. The derivative omits the phone number, includes only the general city and professional contact destinations, and contains no residential street address or identification number. Its factual claims come from the source resume.
 
 Professional email, GitHub, LinkedIn, project repository, and credential links are supplied by the owner through the resume. Linking to a certificate does not redistribute the certificate document. No testimonial, private identity document, or fabricated achievement has been added.
 

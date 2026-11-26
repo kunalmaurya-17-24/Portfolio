@@ -1,6 +1,17 @@
 {
-  "src": null,
-  "title": "After Hours",
-  "artist": "Original instrumental",
-  "license": "Original procedural composition created for this portfolio. No third-party samples or Persona melodies."
+  "defaultTrack": "life-will-change",
+  "tracks": [
+    {
+      "id": "life-will-change",
+      "src": "audio/Persona 5 - Life Will Change (中英歌詞).mp3",
+      "title": "Life Will Change",
+      "artist": "Persona 5"
+    },
+    {
+      "id": "last-surprise",
+      "src": "audio/Persona 5 - Last Surprise.mp3",
+      "title": "Last Surprise",
+      "artist": "Persona 5"
+    }
+  ]
 }

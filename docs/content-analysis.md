@@ -1,127 +1,138 @@
-# Resume and content analysis
+# Authoritative CV and public content
 
-Source: `KUNAL MAURYA RESUME - JUNE.pdf` (two pages). Both pages were rendered with Poppler at a 1600px maximum dimension and visually inspected. Text and URI annotations were extracted independently using the bundled Python runtime and pypdf. The source PDF was preserved.
+Current source: **`kunal maurya cv europass.pdf`**, supplied on 26 November 2026. All three pages were extracted with pypdf, rendered with Poppler, and visually inspected; URI annotations were checked independently of their visible labels. The original PDFs remain unchanged. `KUNAL MAURYA RESUME - JUNE.pdf` is preserved as historical material, superseded for current content.
 
-## Public identity
+**Explicit user constraint: do not add a summary.** The new CV's ABOUT ME paragraph is excluded from the site and public derivative. Do not rewrite it as an About section, profile, or professional summary. Factual descriptions attached to a specific experience or project may use the records below.
 
-- **Name:** Kunal Maurya
-- **Professional title:** Agentic AI & LLM Engineer
-- **General location:** New Delhi, India
-- **Public professional email:** kunalmaurya.mait@gmail.com
-- **GitHub:** https://github.com/kunalmaurya-17-24
-- **LinkedIn:** https://www.linkedin.com/in/kunal-maurya-a58035304/
+Private phone/header details are excluded from this document and public PDF. Do not publish the original CV, a residential address, birth date, identification number, or private contact details. General city and professional email are appropriate.
 
-The resume's visible LinkedIn text is shortened; the actual URI annotation above is the reliable destination. The original includes a personal phone number. Omit that number from the website and any public resume derivative by default. There is no residential street address or identification number in the supplied PDF. Do not copy the original PDF directly into public assets without deciding whether to remove the phone number and metadata. Certificate documents themselves have not been inspected; link only to the supplied public destinations if desired.
+## Identity and public links
 
-A sanitized two-page derivative has been created at `public/Kunal-Maurya-Resume.pdf`. It preserves the supplied qualifications and reported outcomes, condenses prose, excludes the phone number, and retains the professional email, general city, correct GitHub/LinkedIn destinations, project repository, and certificate links. It was rendered and visually inspected; extraction confirms two pages, seven link annotations, and no personal phone number. The source PDF is unchanged.
+- **Kunal Maurya**, general city **Delhi, India**. New Delhi is the education location.
+- **kunalmaurya.mait@gmail.com**.
+- Supplied portfolio: https://portfolio-eight-mocha-28.vercel.app/
+- GitHub account, corroborated by all three project links: https://github.com/kunalmaurya-17-24
+- The new CV supplies no overarching professional title or LinkedIn URL. The old CV supplied `https://www.linkedin.com/in/kunal-maurya-a58035304/`; that is historical provenance rather than a newly reaffirmed link.
+- A portrait is included in the new owner-supplied CV and was visually inspected; the public derivative is text-only.
 
-## Experience: complete factual inventory
+## Experience
 
-### Ethara AI - LLM Associate
+### Ethara AI / LLM Post Training Expert
 
-**June 2026 - Present** (as stated in the supplied resume)
+**15 June 2026 - 10 November 2026; Gurugram, India.** The role has ended; do not label it Present.
 
-- Evaluated **500 LLM-generated responses** across diverse domains using structured rubrics covering accuracy, relevance, coherence, and instruction adherence.
-- Performed prompt-response assessment, data validation, and quality assurance checks supporting large-scale LLM post-training workflows.
-- Identified annotation inconsistencies and contributed to dataset refinement, data quality, and benchmark standards.
-- Used analytical reasoning and language evaluation frameworks to assess model behavior and output quality.
-- Collaborated with quality reviewers on feedback, evaluation consistency, project guidelines, and SLAs.
+- Used **Trinity**, a multi-agent adversarial benchmarking framework, to generate, audit and validate challenging tasks for frontier models in reinforcement learning environments.
+- Task generation, independent auditing and difficulty calibration supported reliable, reproducible evaluation.
+- Evaluated **500+ LLM responses** for factual accuracy, reasoning quality, instruction adherence and consistency using structured rubrics.
+- Identified annotated-dataset and model-output inconsistencies, supporting data quality, benchmark integrity and evaluation reliability.
+- Coordinated approximately **20-25 team members** across evaluation workflows, supporting task execution and quality standards.
+- Conducted multimodal evaluations of **text, images, videos, AI-generated code and web applications**.
 
-Use present-tense descriptions only for this current role. Do not extrapolate evaluation volume beyond the supplied 500 responses.
+### Chirpn IT Solutions / Python AI Intern
 
-### Chirpn - Python AI Engineer
+**16 February 2026 - 30 April 2026; Gurugram, India.** Preserve the Intern title.
 
-**February 2026 - April 2026**
+- AI-powered software testing agent combining LLMs and **Playwright** for generation, execution and validation.
+- **Claude CLI and Codex CLI** for source analysis, test generation and structured reporting.
+- Jira acceptance criteria, user requirements and source-code context improved test generation.
+- Execution reduced from **over 10 minutes to under 4 minutes**; report generation from **30 seconds to under 8 seconds**.
+- **Python, FastAPI and SSE** services for live AI-workflow monitoring.
 
-- Owned core development of the **AI-powered QA Agent** inside a multi-agent software automation platform.
-- Integrated **Claude CLI and Codex CLI** with dynamic provider routing for automated **Playwright** test generation, execution, and structured validation reports.
-- Reduced end-to-end QA execution from **10+ minutes to under 4 minutes** by optimizing command generation, removing redundant test creation, and improving orchestration.
-- Improved generated test-suite relevance by **approximately 70%**, using Jira acceptance criteria, requirements, and source context.
-- Optimized token consumption, response consistency, and execution speed; no numeric token savings are supplied.
-- Reduced final-report delivery from **30 seconds to under 8 seconds**.
-- Enhanced **FastAPI + SSE** for live progress updates and frontend responsiveness.
-- Implemented cross-browser automation across **Chromium, Firefox, and WebKit**.
+The old approximately 70% relevance metric is absent from the new CV; exclude it.
 
-### FrugalX - Agentic AI Intern
+### FrugalX / Agentic AI Intern
 
-**November 2025 - April 2026**
+**5 November 2025 - 30 April 2026; Delhi, India.**
 
-- Built a local inference engine running **Whisper, CLAP, and MiniLM** on standard consumer CPUs without a GPU dependency.
-- Built a real-time CLI with persistent in-memory model states and **sub-second search across thousands of audio chunks**.
-- Developed data-repair and validation algorithms for missing or corrupted sub-second temporal boundaries in long-form audio.
-- Unified localized word-level semantic text, speaker identification, and acoustic signatures into a queryable index.
+- Multimodal audio retrieval combining speech recognition, acoustic embeddings and semantic search.
+- **Whisper, CLAP and MiniLM** for transcription, acoustic representation and text retrieval.
+- **HNSW** vector indexing/similarity search and **BGE-based reranking** for retrieval relevance.
+- Preprocessing, repair and validation for missing/inconsistent temporal boundaries in transcription pipelines.
+- **Local CPU inference and persistent model loading** for efficient retrieval.
 
-### Infits - Web Development Intern (remote)
+The new CV supplies no sub-second benchmark or audio-chunk volume. Do not retain the old timing/volume claims.
 
-**September 2024 - December 2024**
+## Projects
 
-- Built **Node.js and MySQL** backend services for a job-finding platform, with API responses **under 200ms**.
-- Designed and optimized **15+ RESTful endpoints** and input-validation middleware; the resume reports **100% schema compliance**.
-- Integrated **Cloud Firestore** for real-time mobile/server synchronization with **sub-100ms latency**.
+### CrossSense: Cross-Modal Satellite Image Retrieval
 
-The Chirpn and FrugalX dates overlap in the original. Preserve them; do not invent a narrative explaining the overlap.
+**1 November 2026 - Current**. Repository: https://github.com/kunalmaurya-17-24/CrossSense
 
-## Personal project
+- Retrieval between **Sentinel-1 SAR** and **Sentinel-2 optical imagery**, matching geographically corresponding image patches across sensing modalities.
+- Reproducible geospatial preprocessing, patch pairing, model training and retrieval evaluation.
+- Geographic train/validation/test splits with spatial leakage detection.
+- **Dual-branch CNN**, **symmetric InfoNCE contrastive loss**, and comparison with a **statistical-feature retrieval baseline**.
+- Bidirectional **Recall@K and Mean Reciprocal Rank (MRR)** evaluation.
+- Initial **36 synthetic image pairs** identified CNN limitations relative to the baseline. **Real-satellite training and evaluation are planned**, not completed.
 
-### ATS Resume Tailoring Agent
+Do not imply real-data success, baseline outperformance, or a deployed satellite service.
 
-**Stack:** Python, LangGraph, Docker, FastAPI; KeyBERT; LaTeX.
+### Sentinel: Autonomous Financial Discipline Agent
 
-**Problem:** Repeatedly tailoring a resume to job descriptions is manual and time-consuming.
+**16 January 2026 - 10 February 2026**. Repository: https://github.com/kunalmaurya-17-24/autonomous-sql-analyst-langgraph-crewai
 
-**Approach:** An autonomous agent parses job descriptions and rewrites LaTeX resumes. KeyBERT performs low-cost keyword extraction before expensive LLM rewrite calls. A LangGraph state machine validates output structure. A Dockerized FastAPI service exposes the workflow, with semantic scores measuring resume-to-job-description alignment.
+- Natural-language financial queries interpreted with LLMs and consistent structured database retrieval.
+- **CrewAI** orchestration and **LangGraph** structured SQL execution.
+- Natural-language-to-SQL retrieval from **PostgreSQL**.
+- SQL-execution error detection and self-correction to refine generated queries.
+- **Opik** observability and **Pydantic** structured-output validation.
 
-**Reported outcomes:** **80% reduction in manual customization time** and **100% LaTeX compilation success** through structure validation. These are resume claims rather than independently benchmarked results; retain context and do not generalize them to universal guarantees.
+No financial-return, accuracy, deployment or user-volume metric is supplied.
 
-**Repository:** https://github.com/kunalmaurya-17-24/ATS-Resume-Tailoring-Agent/tree/main
+### YouTube Multimodal RAG Pipeline
 
-There is only one separately listed personal project in the provided resume. The QA Agent and local audio engine may be presented as **selected professional work** with explicit employer attribution. No repository, demo URL, screenshot, product name, or public ownership claim was supplied for those employer systems. Do not create such links or imply they are open source.
+**2 January 2026 - 25 January 2026**. Repository: https://github.com/kunalmaurya-17-24/YouTube-Multimodal-RAG-Pipeline
 
-## Skills
+- Semantic retrieval and temporal metadata for question answering over long-form video, returning corresponding timestamps.
+- **Python, ChromaDB and yt-dlp** transcript processing/retrieval pipeline.
+- Timestamp-aligned semantic chunking preserves context and temporal relationships.
+- Combined vector/keyword retrieval supports semantic and terminology-specific searches.
+- Context-grounded answers with timestamp references support traceability.
 
-Use categories and actual named technologies, without ratings or proficiency percentages.
-
-- **Languages:** Python, C++, JavaScript (Node.js), SQL.
-- **AI engineering:** Agentic workflows, LangGraph, CrewAI, Claude CLI, RAG architectures, LangChain, Transformers.js, Chroma, FAISS.
-- **Automation and integrations:** n8n, Zapier, Latenode, webhooks, API integrations.
-- **Backend and DevOps:** FastAPI, SSE (Server-Sent Events), Kubernetes (K8s), Docker, Postman, Git.
-- **Additional experience-supported tools:** Codex CLI, Playwright, Chromium, Firefox, WebKit, Whisper, CLAP, MiniLM, MySQL, Cloud Firestore, KeyBERT, LaTeX.
-
-Do not add frontend frameworks to the person's resume skill inventory merely because they are used to implement this portfolio.
+Do not infer visual/audio-model integration from the title alone: the described implementation works with transcripts and temporal metadata. No benchmark is supplied.
 
 ## Education
 
-**Maharaja Agrasen Institute of Technology, GGSIPU, Delhi**
+**Guru Gobind Singh Indraprastha University, New Delhi, India**.
 
-**B.Tech in Computer Science & Technology, 2022 - 2026**
+- **Bachelor of Technology (B.Tech), Computer Science and Technology**.
+- **Minor Specialization in Artificial Intelligence and Machine Learning**.
+- **1 August 2022 - 1 May 2026**.
+- **CGPA 7.47/10; First Division**; **EQF level 6; 200 credits**.
 
-Relevant coursework: Data Structures & Algorithms, Machine Learning, Deep Learning, NLP, Computer Vision, DBMS, Operating Systems.
+Coursework: Applied Mathematics I & II; Discrete Mathematics; Computational Methods; Probability, Statistics and Linear Programming; Statistics; Statistical Modelling & Data Analytics; Data Structures; Design and Analysis of Algorithm; Object-Oriented Programming Using C++; Database Management Systems; Theory of Computation; Operating Systems; Computer Networks; Software Engineering; Compiler Design; Artificial Intelligence; Data Science; Machine Learning; Reinforcement Learning and Deep Learning; Pattern Recognition and Computer Vision; Data Warehousing and Data Mining.
 
-No GPA, class rank, distinction, or graduation ceremony status is supplied.
+The new CV **does not name Maharaja Agrasen Institute of Technology**. Use its named university rather than carrying the old institution label forward.
 
-## Certifications and awards
+## Skills
 
-- **Claude 101 - Anthropic.** Supplied certificate link: https://drive.google.com/file/d/1ZrvLxznH8EJylWBG4Q7gAXqxLEty_HUD/view?usp=sharing
-- **AI Fluency: Framework & Foundations - Anthropic.** Supplied certificate link: https://drive.google.com/file/d/1KaWO3WTsqk2FLBfPz_pkFx75kcdXLWur/view?usp=sharing
-- **Google Arcade 2024 (Winter):** Champion milestone for coding performance.
-- **Datacom Automation AI Accelerator: Autonomous Agent Job Simulation - Forage.** Supplied certificate link: https://drive.google.com/file/d/1MBAD279i0uMgeCCdjK3-fU3XyGhb6AeY/view?usp=sharing
+- **Programming/technical:** Python, C, C++, Java, JavaScript, SQL, PostgreSQL, MySQL, MongoDB, Git, Docker, FastAPI.
+- **AI/ML:** Machine Learning, Deep Learning, Reinforcement Learning, Computer Vision, Multimodal AI, Contrastive Learning, Agentic AI, RAG, NLP, Large Language Models.
+- **Analytical/research:** Information Retrieval, Model Evaluation, LLM Benchmarking, Error Analysis, Data Validation, Data Preprocessing, Feature Engineering, Data Mining, Data Visualisation, Data Science, Statistical Analysis, EDA.
+- **Frameworks/libraries:** PyTorch, Scikit-learn, NumPy, Pandas, Matplotlib, Hugging Face Transformers, LangChain, LangGraph, CrewAI, FAISS, ChromaDB.
+- **Additional experience/project-supported tools:** Trinity, Playwright, Claude CLI, Codex CLI, SSE, Whisper, CLAP, MiniLM, HNSW, BGE reranking, InfoNCE, Opik, Pydantic, yt-dlp.
 
-Do not present the Forage simulation as employment at Datacom. No dates are supplied for the certificates except the Google Arcade Winter 2024 award.
+Old-only n8n, Zapier, Latenode, Kubernetes, Postman and Transformers.js are not retained as current source-backed skills. Do not invent ratings.
 
-## Recommended information architecture
+## Credentials and recognition
 
-1. **Opening and hero:** Name, Agentic AI & LLM Engineer, and a concise editorial statement grounded in the agentic workflows, evaluation, and backend background. Example: "Building agents that move from reasoning to real work."
-2. **Profile:** General location, factual professional focus, and short resume access. Avoid unsupported personality traits or availability statements.
-3. **Selected work:** A leading ATS agent personal-project feature, followed by two clearly marked professional case studies: Chirpn QA automation and FrugalX local audio intelligence. Distinct visual treatments can represent documents, test execution, and acoustic search using original interface graphics rather than fabricated product screenshots.
-4. **Experience:** Four-role timeline or selectable role menu, preserving supplied dates and employers.
-5. **Technical toolkit:** Four tabbed categories drawn from the skills inventory. No arbitrary numeric rankings.
-6. **Education and credentials:** Degree, coursework, certificates, and award.
-7. **Contact:** Email, actual GitHub and LinkedIn destinations, and a sanitized public resume download.
+- **AI Fluency: Framework & Foundations - Anthropic**: https://drive.google.com/file/d/1KaWO3WTsqk2FLBfPz_pkFx75kcdXLWur/view?usp=sharing
+- **Claude 101 - Anthropic**: https://drive.google.com/file/d/1ZrvLxznH8EJylWBG4Q7gAXqxLEty_HUD/view?usp=sharing
+- **Generative AI with Large Language Models - Udemy**: https://drive.google.com/file/d/1pGH61ewp9hVNMSDLNool4kCkOOb8Xfdu/view?usp=sharing
+- **Datacom Automation AI Accelerator: Autonomous Agent Job Simulation - Forage**: https://drive.google.com/file/d/1MBAD279i0uMgeCCdjK3-fU3XyGhb6AeY/view?usp=sharing
+- **AI Interview - Outstanding Performance - micro1; 14 November 2026**: recognition in an AI-based interview assessment, not employment or a standardized qualification. https://drive.google.com/file/d/1Ayw8UdbV3waFcte9bILwSCIrb-1eAHDR/view?usp=sharing
+- **Google Arcade Winter 2024 - Champion milestone**: hands-on technical learning and practical challenges, not an overall competition win.
 
-## Editorial safeguards
+Links are the PDF's actual URI annotations. The linked documents were not independently inspected during this update.
 
-- No fabricated testimonials, client names, awards, project launch dates, or project outcomes.
-- Do not say "available for work" or imply a preferred employment arrangement unless the user supplies it.
-- General location is appropriate; phone number should remain private by default.
-- Keep employer-owned work attribution visible in expanded details as well as in showcase summaries.
-- Resume facts are supplied claims, not independent verification. A portfolio should not promise the same metrics for future work.
+## Languages
+
+Hindi: mother tongue. English: **Listening C1; Reading B2; Spoken production B2; Spoken interaction B2; Writing B2**. Do not turn these mixed self-reported levels into blanket C1 fluency.
+
+## Superseded content and public derivative
+
+Remove current-site claims for Infits, ATS Resume Tailoring Agent, its 80%/100% results, Ethara Present status, Chirpn Engineer title, approximately 70% relevance gain, and FrugalX sub-second/thousands metrics. They are absent from the new authoritative source. Preserve original documents for history.
+
+The public download remains **`public/Kunal-Maurya-Resume.pdf`**, generated with **`scripts/generate-resume.py`**. It includes the current factual records, genuine project/credential links, general city and email; it excludes the summary, phone and other private header data. The original PDFs are never modified.
+
+Verification on 26 November 2026: the output contains **three pages and eleven URI link annotations**. All three pages were rendered with Poppler at a 1700px maximum dimension and visually inspected for clipping, overlap, readability and pagination. pypdf text checks confirm that the phone number, ABOUT ME summary phrases, Infits, ATS Resume Tailoring, 70%, sub-second and MAIT labels are absent. The new experience, project, education, skill, credential and language facts are present. Review images are under `tmp/pdfs-europass/`; the source PDFs remain outside `public/`.

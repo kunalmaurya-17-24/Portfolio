@@ -1,5 +1,11 @@
 # Validation evidence
 
+## CV and playlist update — 26 November 2026
+
+The Europass CV is now the factual source, with its summary intentionally excluded from the website and regenerated three-page public resume. Current browser regression results are in `qa-results.md`: 30 checks passed with no failures. They include the updated facts, all three project repositories, the actual public PDF bytes, the two-track selector and actual decoding/playback progression of both supplied MP3s.
+
+The focused playlist suite (`scripts/test-playlist.mjs`, `playlist-test-results.json`) passed all 12 checks against the built production preview on port 4173 and additionally covers rapid switching, cancelling a pending switch, malformed configuration, invalid media, no MP3 requests before explicit playback, and preference persistence without autoplay. The current `screenshots/final` includes desktop/mobile sound settings alongside refreshed CV content at all five viewport sizes. Earlier design/refinement evidence below describes the original creation process.
+
 The final deliverable is a static production build, checked in a real installed Microsoft Edge browser through Playwright and independently inspected in the in-app browser. No Lighthouse score or untested cross-browser claim is made.
 
 ## Actual results and artifacts

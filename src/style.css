@@ -68,3 +68,36 @@ html{overflow-x:clip}.outline-text{-webkit-text-stroke-color:var(--ink)}
 @media(min-width:1800px){.hero{height:min(1150px,100svh);min-height:1060px;max-height:none}}
 .role-menu button[aria-selected=true] small{color:#000}
 .profile,.menu,.document-art{color:#000}
+
+/* CV refresh: project studies, factual profile and a selectable soundtrack. */
+.profile-facts{margin:0 0 20px;display:grid;gap:22px}
+.profile-facts>div{border-bottom:1px solid #0004;padding-bottom:18px}
+.profile-facts dt{font-size:12px;font-weight:600;letter-spacing:.08em;margin-bottom:7px}
+.profile-facts dd{margin:0;font-size:16px;line-height:1.8}
+.academic-record{display:flex;flex-wrap:wrap;gap:28px;margin-top:25px}
+.academic-record>span{font-size:11px;letter-spacing:.05em;line-height:1.8}
+.academic-record b{font:700 35px/1.2 var(--display);display:block;letter-spacing:0}
+.case-date{font-size:12px!important;letter-spacing:.07em;margin-bottom:15px}
+.crosssense-art .doc-sheet{height:61%;padding:20px}
+.crosssense-art .doc-sheet>b{font-size:26px;line-height:1.1}
+.crosssense-art .doc-sheet>b span{display:block;font:500 10px var(--body);letter-spacing:.12em;margin-top:6px}
+.crosssense-art .doc-front{left:43%;width:44%;top:27%}
+.crosssense-art .doc-front>b{font-size:26px}
+.crosssense-art .doc-front>b span{color:var(--ink)}
+.radar-patch{height:58%;margin-top:14px;background-color:var(--ink);background-image:repeating-linear-gradient(135deg,transparent 0 4px,#f4f3eb99 4px 6px,transparent 6px 12px),linear-gradient(45deg,transparent 40%,var(--red) 40% 55%,transparent 55%);background-blend-mode:screen}
+.terrain-patch{width:100%;height:58%;margin-top:14px}
+.crosssense-art .doc-front em{font-size:7px;letter-spacing:.02em}
+.project-small .sound-word{font-size:clamp(60px,6vw,88px)}
+.qa-window strong{font-size:clamp(24px,2.8vw,38px)}
+.track-heading{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.track-heading label{margin-bottom:10px}
+#audio-track-position{font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+#audio-track-select{width:100%;min-width:0;min-height:46px;border:1px solid var(--ink);border-radius:0;padding:10px 33px 10px 12px;background:var(--paper);color:var(--ink);font:500 14px var(--body);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='m1 1 5 5 5-5' fill='none' stroke='%23111' stroke-width='2'/%3E%3C/svg%3E");background-position:right 12px center;background-repeat:no-repeat}
+.track-navigation{display:flex;gap:10px;margin:10px 0 22px}
+.audio-settings .track-navigation button{margin:0;flex:1;min-height:42px;font-size:12px;letter-spacing:.04em;border:1px solid var(--ink)}
+.audio-settings .track-navigation button:hover{background:var(--red);color:#000}
+.audio-settings .track-navigation button:disabled,#audio-track-select:disabled{opacity:.5;cursor:wait}
+.audio-settings{max-height:calc(100dvh - 105px);overflow:auto}
+.audio-settings .audio-track{padding-bottom:15px;border-bottom:1px solid #1114}
+@media(max-width:800px){.profile-bottom{grid-template-columns:.7fr 1.3fr}.credentials small{line-height:1.6}.crosssense-art .doc-sheet>b,.crosssense-art .doc-front>b{font-size:25px}}
+@media(max-width:500px){.crosssense-art .doc-sheet{padding:13px}.crosssense-art .doc-sheet>b,.crosssense-art .doc-front>b{font-size:18px}.crosssense-art .doc-sheet>b span{font-size:8px}.crosssense-art .doc-front em{font-size:5px;left:10px}.project-small .sound-word{font-size:70px}.qa-window strong{font-size:30px}.profile-facts dd{font-size:16px}.profile-facts dt{font-size:12px}.academic-record{gap:23px}.skill-cloud>span{max-width:100%;overflow-wrap:anywhere;font-size:25px}.skill-menu button{font-size:20px;min-height:75px}.role-menu button>span{font-size:25px}.role-menu button small{font-size:11px;max-width:110px}.audio-player .audio-settings{width:min(300px,calc(100vw - 30px))}.small-copy .eyebrow{line-height:1.8}.case-dialog h2{overflow-wrap:anywhere}.hero-description h2{font-size:25px}}

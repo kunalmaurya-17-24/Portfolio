@@ -1,12 +1,12 @@
 # Kunal Maurya / Behind the Systems
 
-A Persona-inspired interactive portfolio for an Agentic AI & LLM Engineer. Oversized editorial typography, original angular artwork, conceptual project diagrams, selectable experience records, and an optional instrumental soundtrack form a single red, ink, and paper identity.
+A Persona-inspired interactive portfolio of Kunal Maurya’s AI and machine-learning work. Oversized editorial typography, original angular artwork, conceptual project diagrams, selectable experience records, and an optional two-track Persona 5 soundtrack form a single red, ink, and paper identity.
 
-This is a local project deliverable. No production site has been deployed.
+Vercel-ready static portfolio. See [deployment instructions](docs/vercel-deployment.md) for importing the repository and selecting the deployment branch.
 
 ## Run locally
 
-Use Node.js **20.19+ or 22.12+** and npm. Development was performed with Node 24.22.0 and npm 11.19.1.
+Use Node.js **22.x** and npm for the configured Vercel build. Development was performed with Node 24.22.0 and npm 11.19.1.
 
 ```sh
 npm ci
@@ -36,18 +36,18 @@ The implementation does not need React, GSAP, a component library, WebGL, or a r
 
 | File | Responsibility |
 | --- | --- |
-| `src/main.ts` | Page structure, biography, education, credentials, contact links, original inline artwork, and UI interactions |
-| `src/data.ts` | Experience records, skill categories, and expanded project case files |
+| `src/main.ts` | Page structure, factual profile, education, contact links, original inline artwork, and UI interactions |
+| `src/data.ts` | Experience records, skill categories, credentials, and expanded project case files |
 | `src/style.css` | Palette/type tokens, compositions, responsive rules, animation keyframes, focus and reduced-motion styles |
 | `src/fonts.css` | Font faces and local Latin font subsets |
-| `src/audio.ts` | Original instrumental, authorized-file playback, state, persistence, and audio cleanup |
-| `public/audio/track.json` | Optional authorized audio source and actual track information |
+| `src/audio.ts` | Playlist/file playback, original fallback, preferences, switching and audio cleanup |
+| `public/audio/track.json` | Playlist entries, default track and actual local audio paths |
 | `public/Kunal-Maurya-Resume.pdf` | Public resume served by the view/download links |
 | `index.html` | Title, metadata, language, favicon link, skip link, and no-JavaScript resume fallback |
 
-All hard-coded content is trusted local source; it is not a user-input CMS. Update both the relevant showcase and its case file when changing a project. Preserve the distinction between the personal ATS Resume Tailoring Agent and employer-owned professional work at Chirpn and FrugalX. Results are the owner's supplied resume claims, not independently reproduced benchmarks.
+All hard-coded content is trusted local source; it is not a user-input CMS. Update both the relevant showcase and its case file when changing a project. The three project studies are CrossSense, Sentinel: Autonomous Financial Discipline Agent, and YouTube Multimodal RAG Pipeline. Work experience is recorded separately. CrossSense’s initial experiments used 36 synthetic pairs; real-satellite training and evaluation remain planned.
 
-The source resume was read completely and both pages visually checked. The public PDF is a freshly typeset, two-page derivative containing the professional email and general city, with the personal phone number omitted. The original PDF remains untouched outside `public/`. See [content analysis](docs/content-analysis.md) for factual provenance and privacy decisions. Replace the public PDF with an updated, reviewed version rather than moving the original into `public/`.
+The latest source is `kunal maurya cv europass.pdf`, read completely and visually checked across all three pages. The public PDF is a newly typeset three-page derivative with updated experience, projects, education, skills, credentials and languages. The CV summary is intentionally omitted from both the website and public PDF. Private phone and header details are also omitted. Original PDFs remain untouched outside `public/`. See [content analysis](docs/content-analysis.md) for provenance and `scripts/generate-resume.py` for regeneration.
 
 ## Motion and interaction systems
 
@@ -69,9 +69,9 @@ Visual review targets are **1920 × 1080**, **1440 × 900**, **1366 × 768**, **
 
 ## Audio
 
-The site ships with **After Hours / Original instrumental**, a sample-free procedural track built with Web Audio. It is not a Persona recording or transcription. No authorized game soundtrack was supplied.
+The player includes the two MP3 files supplied by the owner: **Life Will Change** and **Last Surprise**, labeled Persona 5. Open the sound settings to choose a track, or use PREV/NEXT. Playback starts only after Play. Switching while paused stays silent; switching during playback transitions to the selected song. Track choice, volume and mute preferences persist without enabling autoplay. Playback pauses in the background.
 
-Pressing Play explicitly starts playback; volume and mute preferences persist without granting autoplay. Playback pauses when the browser tab becomes hidden. Set `src` in `public/audio/track.json` to a file you are authorized to redistribute, or leave it `null` for the original instrumental. See [audio configuration and behavior](docs/audio.md) for the configuration format and detailed lifecycle behavior.
+Edit the playlist in `public/audio/track.json` to change order, metadata or file paths. Media files use `preload="none"` and are not downloaded by the player before explicit playback. The original procedural instrumental remains a fallback for missing/invalid configuration. See [audio configuration](docs/audio.md). The supplied recordings remain third-party material; no redistribution license is asserted by this project.
 
 ## Research, screenshots, and validation
 
@@ -84,7 +84,7 @@ Pressing Play explicitly starts playback; volume and mute preferences persist wi
 - [Asset attribution and licensing](docs/asset-licensing.md)
 - [Implementation plan](docs/PLAN.md)
 - [Testing and validation results](docs/testing.md)
-- [Final automated results: 26 checks passed](docs/qa-results.md)
+- [Latest automated browser results](docs/qa-results.md)
 - [Screenshot evidence](docs/screenshots/) contains the design, motion, and final polish passes, including desktop/mobile views and layout reports.
 
 The [design-pass captures](docs/screenshots/pass-1-design/) preserve the first visual review. Subsequent passes and final QA evidence are kept alongside them. Consult the final validation report for completed checks, discovered fixes, and browser-coverage limits; a successful build alone is not a visual-quality claim.
@@ -93,10 +93,10 @@ The browser regression entry point is `npm run test:browser`. Browser tooling is
 
 ## Scope and remaining limits
 
-- No production deployment or custom domain setup was performed.
+- This repository contains Vercel deployment configuration; hosting and domain state are managed in the Vercel project.
 - The contact action opens the visitor's email client via `mailto:`; no message is sent to a backend. Copy Email is a convenience fallback.
-- Professional case studies describe employer-owned work. No private source code, fabricated product screenshot, or unavailable public demo is included.
-- No confirmed personal portrait or authorized Persona soundtrack was provided. The hero uses original abstract artwork; supplied franchise/fan imagery is retained only for research outside the shipped bundle.
+- The project artwork is conceptual, not a product screenshot. Numerical claims and experimental limitations follow the current CV.
+- The hero retains original abstract artwork. Reference images and original CVs are excluded from the deployed bundle. The supplied soundtrack MP3s are included as requested by the owner.
 - Certificate, GitHub, and LinkedIn destinations are the links supplied in the resume and depend on their external owners' availability and access settings.
 - The page requires modern JavaScript for its interactive rendering. A no-JavaScript visitor receives a direct public-resume link.
 - Screen-reader and browser compatibility claims must remain bounded by the actual recorded validation. This project does not claim an audited accessibility certification or an Awwwards award.

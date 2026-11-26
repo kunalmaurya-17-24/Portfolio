@@ -9,7 +9,7 @@ Signal red `#ed1834`, ink `#111111`, paper `#f4f3eb`, muted paper `#d9d9cf`. Bla
 ## Compositions
 
 - Hero: giant staggered name, angular original signal-mask/monogram, offset manifesto, red technical label and open editorial whitespace.
-- Work: one personal project as a wide paper dossier, then paired professional case files with differentiated schematic artwork. Schematics are explicitly conceptual.
+- Work: CrossSense as a wide paired-sensor study, then Sentinel and YouTube RAG project case files with differentiated schematic artwork. Schematics are explicitly conceptual.
 - Profile/experience: red manifesto and black selectable role menu. All four roles remain accessible in the document.
 - Toolkit: categorical ability menu, no fictional percentage ratings.
 - Education/contact: narrow editorial records followed by an oversized invitation and direct email.
@@ -19,3 +19,7 @@ Signal red `#ed1834`, ink `#111111`, paper `#f4f3eb`, muted paper `#d9d9cf`. Bla
 A short 850ms cut-paper opening can be skipped. Staggered line entrances, clipped diagram reveals, subtle scroll-linked emblem drift, button inversions and menu transitions create a shared visual grammar. Pointer-only effects never conceal controls. Reduced motion disables the opening, continuous ticker/orbit/equalizer movement, smooth scrolling and transform-based reveals.
 
 Original supplied images are preserved as research material. No confirmed personal portrait was supplied, so the emblem is an abstract identity graphic, never presented as a likeness. No copyrighted characters, franchise logos or music are bundled.
+
+## CV and soundtrack refresh — 26 November 2026
+
+The current CV is authoritative. Profile prose has been replaced with factual identity, education and language records; its summary is excluded. Original technical artwork now represents satellite patch pairing, SQL workflows and timestamped transcript retrieval. The compact sound dock exposes a two-track selector for the supplied Persona 5 recordings.

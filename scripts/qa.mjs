@@ -37,11 +37,6 @@ async function check(name, work) {
 async function makeContext(options = {}) {
   const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, acceptDownloads: true, ...options });
   await context.addInitScript(() => {
-    window.__qaAudioContexts = [];
-    const OriginalAudioContext = window.AudioContext;
-    if (OriginalAudioContext) window.AudioContext = class extends OriginalAudioContext {
-      constructor(...args) { super(...args); window.__qaAudioContexts.push(this); }
-    };
     window.__qaLongTasks = [];
     window.__qaLayoutShifts = [];
     window.__qaLCP = null;
@@ -77,6 +72,7 @@ async function load(page) {
   assert.equal(response.status(), 200);
   await page.evaluate(() => document.fonts.ready);
   await page.waitForFunction(() => document.querySelector('.opening')?.classList.contains('finished'));
+  await page.waitForFunction(() => document.querySelector('#audio-player')?.dataset.configReady === 'true');
   await page.waitForTimeout(1100);
 }
 
@@ -226,12 +222,25 @@ try {
     });
   }
   await check('All three project case files and focus return', async () => {
-    for (const [index, id] of ['ats', 'qa', 'audio'].entries()) {
+    for (const [index, id] of ['crosssense', 'sentinel', 'youtube'].entries()) {
       const button = page.locator(`[data-case="${id}"]`);
       await button.click();
       assert.equal(await page.locator('#case-dialog').evaluate(dialog => dialog.open), true);
       assert.ok((await page.locator('#case-title').textContent()).trim().length > 5);
       assert.ok((await page.locator('#case-content').textContent()).includes('THE ENGINEERING'));
+      const repository = page.locator('#case-content a[href^="https://github.com/"]');
+      assert.equal(await repository.count(), 1, 'Each new CV project has a supplied public repository');
+      const repositoryPath = new URL(await repository.getAttribute('href')).pathname.replace(/\/$/, '');
+      assert.equal(repositoryPath, {
+        crosssense: '/kunalmaurya-17-24/CrossSense',
+        sentinel: '/kunalmaurya-17-24/autonomous-sql-analyst-langgraph-crewai',
+        youtube: '/kunalmaurya-17-24/YouTube-Multimodal-RAG-Pipeline',
+      }[id]);
+      if (id === 'crosssense') {
+        const text = await page.locator('#case-content').innerText();
+        assert.match(text, /36/);
+        assert.match(text, /synthetic/i, 'CrossSense must disclose its synthetic proof-of-concept dataset');
+      }
       if (index === 0) await page.keyboard.press('Escape');
       else if (index === 1) await page.locator('.case-close').click();
       else await page.mouse.click(2, 2);
@@ -259,6 +268,7 @@ try {
     assert.equal(response.status(), 200);
     const bytes = await response.body();
     assert.equal(bytes.subarray(0, 5).toString(), '%PDF-');
+    assert.deepEqual(bytes, await readFile('public/Kunal-Maurya-Resume.pdf'), 'Download must serve the current public CV asset');
     const pending = page.waitForEvent('download');
     await link.click();
     const download = await pending;
@@ -266,37 +276,108 @@ try {
     assert.equal(await download.failure(), null);
     return { bytes: bytes.length, filename: download.suggestedFilename() };
   });
-  await check('Real audio controls, preferences and silent reload', async () => {
-    assert.equal(await page.evaluate(() => window.__qaAudioContexts.length), 0);
-    assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
-    await page.locator('#audio-toggle').click();
-    await page.waitForFunction(() => document.querySelector('#audio-player').dataset.playing === 'true');
-    assert.equal(await page.evaluate(() => window.__qaAudioContexts[0].state), 'running');
-    assert.equal(await page.locator('[data-audio-icon]').textContent(), 'Ⅱ');
+  await check('New CV facts replace superseded resume content', async () => {
+    const roles = await page.locator('[data-role]').allTextContents();
+    assert.equal(roles.length, 3);
+    assert.ok(roles.some(role => role.includes('Ethara AI')));
+    assert.ok(roles.some(role => role.includes('Chirpn')));
+    assert.ok(roles.some(role => role.includes('FrugalX')));
+    const experienceText = await page.locator('#experience').textContent();
+    assert.match(experienceText, /LLM Post[ -]Training Expert/i);
+    assert.match(experienceText, /Python AI Intern/i);
+    assert.doesNotMatch(experienceText, /PRESENT|Infits|70%|sub-second/i);
+    const education = await page.locator('.education').textContent();
+    assert.match(education, /Guru Gobind Singh Indraprastha University/);
+    assert.match(education, /7\.47/);
+    assert.doesNotMatch(education, /Maharaja Agrasen|MAIT/);
+    const projectNames = await page.locator('[data-case]').evaluateAll(buttons => buttons.map(button => button.dataset.case));
+    assert.deepEqual(projectNames, ['crosssense', 'sentinel', 'youtube']);
+    const pageText = await page.locator('main').textContent();
+    assert.doesNotMatch(pageText, /ATS Resume Tailoring Agent|80% less manual|100% LaTeX compilation/i);
+    const headings = await page.locator('h1,h2,h3,h4').allTextContents();
+    assert.deepEqual(headings.filter(text => /^\s*(?:summary|about me)\s*$/i.test(text)), [], 'No summary/about-me heading should be restored');
+    return { employmentRecords: 3, projects: projectNames, university: 'Guru Gobind Singh Indraprastha University', cgpa: '7.47/10' };
+  });
+  await check('MP3 playlist selection, wrapping and no autoplay', async () => {
     await page.locator('#audio-expand').click();
     assert.equal(await page.locator('#audio-settings').isVisible(), true);
+    const tracks = await page.locator('#audio-track-select option').evaluateAll(options => options.map(option => ({ id: option.value, label: option.textContent })));
+    assert.deepEqual(tracks.map(track => track.id), ['life-will-change', 'last-surprise']);
+    assert.match(tracks[0].label, /Life Will Change/);
+    assert.match(tracks[1].label, /Last Surprise/);
+    assert.equal(await page.locator('#audio-player').getAttribute('data-source'), 'file');
+    assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
+    assert.equal(await page.locator('#audio-media').count(), 0, 'No media should be created before explicit Play');
+    const selected = async id => {
+      await page.waitForFunction(value => document.querySelector('#audio-player').dataset.track === value, id);
+      assert.equal(await page.locator('#audio-track-select').inputValue(), id);
+      assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
+      assert.equal(await page.locator('#audio-media').count(), 0);
+    };
+    await page.locator('#audio-prev').click();
+    await selected('last-surprise');
+    await page.locator('#audio-next').click();
+    await selected('life-will-change');
+    await page.locator('#audio-track-select').selectOption('last-surprise');
+    await selected('last-surprise');
+    await page.reload({ waitUntil: 'networkidle' });
+    assert.equal(await page.locator('#audio-track-select').inputValue(), 'last-surprise');
+    assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
+    assert.equal(await page.locator('#audio-media').count(), 0);
+    return { tracks, persistedSelection: 'last-surprise', initialPlayback: 'off' };
+  });
+  await check('Real MP3 decoding, controls, preferences and background pause', async () => {
+    const playAndInspect = async expectedFile => {
+      await page.locator('#audio-toggle').click();
+      await page.waitForFunction(() => {
+        const audio = document.querySelector('#audio-media');
+        return document.querySelector('#audio-player').dataset.playing === 'true' && audio instanceof HTMLAudioElement && !audio.paused && audio.readyState >= 2 && audio.currentTime > 0;
+      }, null, { timeout: 20000 });
+      const state = await page.locator('#audio-media').evaluate(audio => ({ source: decodeURIComponent(new URL(audio.currentSrc).pathname), duration: audio.duration, currentTime: audio.currentTime, error: audio.error?.code ?? null }));
+      assert.ok(state.source.endsWith(expectedFile), state.source);
+      assert.ok(Number.isFinite(state.duration) && state.duration > 30, 'A real full track must decode');
+      assert.equal(state.error, null);
+      const initialTime = state.currentTime;
+      await page.waitForFunction(time => document.querySelector('#audio-media').currentTime > time + 0.15, initialTime);
+      assert.equal(await page.locator('[data-audio-icon]').textContent(), 'Ⅱ');
+      return state;
+    };
+    const lastSurprise = await playAndInspect('Persona 5 - Last Surprise.mp3');
+    await page.locator('#audio-expand').click();
     await page.locator('#audio-volume').fill('41');
     await page.locator('#audio-volume').dispatchEvent('input');
+    await page.waitForFunction(() => Math.abs(document.querySelector('#audio-media').volume - 0.41) < 0.015);
     await page.locator('#audio-mute').click();
     assert.equal(await page.locator('#audio-mute').getAttribute('aria-label'), 'Unmute music');
     assert.equal(await page.locator('[data-mute-label]').textContent(), 'UNMUTE');
+    await page.waitForFunction(() => document.querySelector('#audio-media').volume < 0.005);
     await page.locator('#audio-mute').click();
     assert.equal(await page.locator('#audio-mute').getAttribute('aria-label'), 'Mute music');
+    await page.waitForFunction(() => Math.abs(document.querySelector('#audio-media').volume - 0.41) < 0.015);
     await page.locator('#audio-toggle').click();
-    await page.waitForTimeout(300);
-    assert.equal(await page.evaluate(() => window.__qaAudioContexts[0].state), 'suspended');
+    await page.waitForFunction(() => document.querySelector('#audio-media').paused);
     assert.equal(await page.locator('[data-audio-icon]').textContent(), '▶');
-    await page.reload({ waitUntil: 'networkidle' });
-    assert.equal(await page.locator('#audio-volume').inputValue(), '41');
-    assert.equal(await page.evaluate(() => window.__qaAudioContexts.length), 0);
-    assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
-    await page.locator('#audio-toggle').click();
-    await page.waitForFunction(() => document.querySelector('#audio-player').dataset.playing === 'true');
+    await page.locator('#audio-track-select').selectOption('life-will-change');
+    assert.equal(await page.locator('#audio-media').count(), 0, 'Paused selection should not preload another file');
+    const lifeWillChange = await playAndInspect('Persona 5 - Life Will Change (中英歌詞).mp3');
     await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, get: () => true }); document.dispatchEvent(new Event('visibilitychange')); });
-    await page.waitForTimeout(80);
-    assert.equal(await page.evaluate(() => window.__qaAudioContexts[0].state), 'suspended');
+    await page.waitForFunction(() => document.querySelector('#audio-media').paused);
+    assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
     assert.equal(await page.locator('#audio-status').textContent(), 'Paused in background');
+    await page.locator('#audio-mute').click();
     await page.reload({ waitUntil: 'networkidle' });
+    await page.waitForFunction(() => document.querySelector('#audio-player')?.dataset.configReady === 'true');
+    assert.equal(await page.locator('#audio-volume').inputValue(), '41');
+    assert.equal(await page.locator('#audio-track-select').inputValue(), 'life-will-change');
+    assert.equal(await page.locator('#audio-mute').getAttribute('aria-label'), 'Unmute music');
+    assert.equal(await page.locator('#audio-player').getAttribute('data-playing'), 'false');
+    assert.equal(await page.locator('#audio-media').count(), 0);
+    return { lastSurprise, lifeWillChange, persistedVolume: 41, persistedMute: true, reloadPlayback: 'off' };
+  });
+  await check('Axe expanded music controls WCAG 2.2 AA', async () => {
+    await page.locator('#audio-expand').click();
+    try { return await runAxe(page, 'desktop-audio-settings'); }
+    finally { await page.locator('#audio-expand').click(); }
   });
   await check('Decorative motion pause control', async () => {
     await page.locator('#motion-toggle').click();
@@ -322,7 +403,7 @@ try {
   await page.waitForTimeout(450);
   await check('Axe expanded navigation WCAG 2.2 AA', () => runAxe(page, 'desktop-menu'));
   await page.keyboard.press('Escape');
-  await page.locator('[data-case="ats"]').click();
+  await page.locator('[data-case="crosssense"]').click();
   await page.waitForTimeout(400);
   await check('Axe case dialog WCAG 2.2 AA', () => runAxe(page, 'desktop-case'));
   await page.keyboard.press('Escape');
@@ -379,13 +460,14 @@ try {
     await mobile.locator('.menu-toggle').tap();
     await mobile.locator('#menu a[href="#work"]').tap();
     await mobile.waitForFunction(() => location.hash === '#work' && !document.querySelector('#menu').open);
-    await mobile.locator('[data-case="ats"]').tap();
+    await mobile.locator('[data-case="crosssense"]').tap();
     assert.equal(await mobile.locator('#case-dialog').evaluate(dialog => dialog.open), true);
     await mobile.locator('.case-close').tap();
     assert.equal(await mobile.locator('#case-dialog').evaluate(dialog => dialog.open), false);
     await mobile.locator('#audio-expand').tap();
     assert.equal(await mobile.locator('#audio-settings').isVisible(), true);
   });
+  await check('Axe mobile music controls WCAG 2.2 AA', () => runAxe(mobile, 'mobile-audio-settings'));
   await mobileContext.close();
 
   await check('Reduced motion removes decorative animation and preserves content', async () => {
@@ -405,7 +487,7 @@ try {
       assert.equal(state.introDisplay, 'none');
       await reduced.locator('.menu-toggle').click();
       await reduced.keyboard.press('Escape');
-      await reduced.locator('[data-case="ats"]').click();
+      await reduced.locator('[data-case="crosssense"]').click();
       await reduced.keyboard.press('Escape');
       return state;
     } finally { await reducedContext.close(); }
@@ -445,7 +527,7 @@ try {
       'Axe detects a subset of accessibility problems; incomplete rules require manual visual review. No full WCAG certification is claimed.',
       'External GitHub, LinkedIn and certificate URLs are checked for valid destination syntax and safe new-tab attributes. Remote availability and source-content verification are outside this local regression suite.',
       'Performance timings are local observations, not Lighthouse scores or representative field measurements.',
-      'Audio engine state and scheduled playback are tested; headless execution does not constitute a human listening review.',
+      'Both configured MP3 files are tested for browser decoding, advancing playback time and control behavior; headless execution does not constitute a human listening review or verification of distribution rights.',
     ],
   };
   await writeFile('docs/qa-results.json', JSON.stringify(report, null, 2) + '\n');

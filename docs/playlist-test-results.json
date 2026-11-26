@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-11-26T06:14:57.021Z",
+  "baseURL": "http://127.0.0.1:4173/",
+  "browser": "Microsoft Edge / Chromium 158.0.4370.33",
+  "summary": {
+    "passed": 12,
+    "failed": 0,
+    "total": 12
+  },
+  "results": [
+    {
+      "name": "Two supplied tracks, correct labels and no initial audio downloads",
+      "status": "passed"
+    },
+    {
+      "name": "Paused selection and previous/next wrap remain silent",
+      "status": "passed"
+    },
+    {
+      "name": "Life Will Change MP3 decodes and playback time advances",
+      "status": "passed",
+      "detail": {
+        "src": "http://127.0.0.1:4173/audio/Persona 5 - Life Will Change (中英歌詞).mp3",
+        "durationSeconds": 262.153288,
+        "currentTime": 0.659031,
+        "readyState": 4,
+        "volume": 0.28,
+        "error": null
+      }
+    },
+    {
+      "name": "Playing track switch decodes Last Surprise and retires old media",
+      "status": "passed",
+      "detail": {
+        "src": "http://127.0.0.1:4173/audio/Persona 5 - Last Surprise.mp3",
+        "durationSeconds": 235.891519,
+        "currentTime": 0.67023,
+        "readyState": 4,
+        "volume": 0.28,
+        "error": null
+      }
+    },
+    {
+      "name": "Mute, unmute and volume affect actual media",
+      "status": "passed"
+    },
+    {
+      "name": "Rapid playing selections leave exactly the latest track running",
+      "status": "passed"
+    },
+    {
+      "name": "Cancelling an in-flight track switch stays paused",
+      "status": "passed"
+    },
+    {
+      "name": "Selected track, volume and mute persist without autoplay",
+      "status": "passed"
+    },
+    {
+      "name": "Backgrounding pauses media immediately and never resumes automatically",
+      "status": "passed"
+    },
+    {
+      "name": "Invalid playlist safely uses the optional original fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Invalid audio file produces a retryable status without ghost playback",
+      "status": "passed"
+    },
+    {
+      "name": "No uncaught page errors during playlist stress and failure handling",
+      "status": "passed"
+    }
+  ],
+  "decoded": [
+    {
+      "title": "Life Will Change",
+      "src": "http://127.0.0.1:4173/audio/Persona 5 - Life Will Change (中英歌詞).mp3",
+      "durationSeconds": 262.153288,
+      "currentTime": 0.659031,
+      "readyState": 4,
+      "volume": 0.28,
+      "error": null
+    },
+    {
+      "title": "Last Surprise",
+      "src": "http://127.0.0.1:4173/audio/Persona 5 - Last Surprise.mp3",
+      "durationSeconds": 235.891519,
+      "currentTime": 0.67023,
+      "readyState": 4,
+      "volume": 0.28,
+      "error": null
+    }
+  ],
+  "pageErrors": [],
+  "limitation": "Headless browser tests prove decoding and media-time progression, not a human listening review or music licensing provenance."
+}

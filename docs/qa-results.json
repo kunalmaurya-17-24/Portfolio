@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-25T11:32:50.262Z",
-  "baseURL": "http://127.0.0.1:4173/",
+  "generatedAt": "2026-11-26T06:14:42.258Z",
+  "baseURL": "http://127.0.0.1:5173/",
   "browser": "Microsoft Edge / Chromium 158.0.4370.33",
   "summary": {
-    "passed": 26,
+    "passed": 30,
     "failed": 0,
-    "total": 26
+    "total": 30
   },
   "results": [
     {
       "name": "Layout and assets 1920 × 1080",
       "status": "passed",
-      "durationMs": 4019,
+      "durationMs": 3860,
       "detail": {
         "width": 1920,
         "height": 1080,
@@ -26,7 +26,7 @@
     {
       "name": "Layout and assets 1440 × 900",
       "status": "passed",
-      "durationMs": 4002,
+      "durationMs": 3884,
       "detail": {
         "width": 1440,
         "height": 900,
@@ -41,7 +41,7 @@
     {
       "name": "Layout and assets 1366 × 768",
       "status": "passed",
-      "durationMs": 4084,
+      "durationMs": 4026,
       "detail": {
         "width": 1366,
         "height": 768,
@@ -56,7 +56,7 @@
     {
       "name": "Layout and assets 768 × 1024",
       "status": "passed",
-      "durationMs": 3924,
+      "durationMs": 3887,
       "detail": {
         "width": 768,
         "height": 1024,
@@ -71,7 +71,7 @@
     {
       "name": "Layout and assets 390 × 844",
       "status": "passed",
-      "durationMs": 4162,
+      "durationMs": 4177,
       "detail": {
         "width": 390,
         "height": 844,
@@ -86,7 +86,7 @@
     {
       "name": "All internal hash links resolve",
       "status": "passed",
-      "durationMs": 6,
+      "durationMs": 9,
       "detail": {
         "checked": 13
       }
@@ -94,31 +94,31 @@
     {
       "name": "Desktop navigation follows every section link",
       "status": "passed",
-      "durationMs": 3867
+      "durationMs": 3950
     },
     {
       "name": "Navigation dialog Escape and focus return",
       "status": "passed",
-      "durationMs": 126
+      "durationMs": 148
     },
     {
       "name": "Expanded navigation link and close button",
       "status": "passed",
-      "durationMs": 3783
+      "durationMs": 3762
     },
     {
       "name": "Experience tabs click and keyboard",
       "status": "passed",
-      "durationMs": 175,
+      "durationMs": 231,
       "detail": {
-        "tabs": 4,
+        "tabs": 3,
         "keyboardKeys": 6
       }
     },
     {
       "name": "Skills tabs click and keyboard",
       "status": "passed",
-      "durationMs": 153,
+      "durationMs": 222,
       "detail": {
         "tabs": 4,
         "keyboardKeys": 6
@@ -127,20 +127,23 @@
     {
       "name": "All three project case files and focus return",
       "status": "passed",
-      "durationMs": 1218
+      "durationMs": 1268
     },
     {
       "name": "External destination syntax and safe new-tab links",
       "status": "passed",
-      "durationMs": 3,
+      "durationMs": 7,
       "detail": {
-        "checked": 5,
+        "checked": 8,
         "destinations": [
           "https://drive.google.com/file/d/1ZrvLxznH8EJylWBG4Q7gAXqxLEty_HUD/view?usp=sharing",
           "https://drive.google.com/file/d/1KaWO3WTsqk2FLBfPz_pkFx75kcdXLWur/view?usp=sharing",
+          "https://drive.google.com/file/d/1pGH61ewp9hVNMSDLNool4kCkOOb8Xfdu/view?usp=sharing",
+          "https://drive.google.com/file/d/1Ayw8UdbV3waFcte9bILwSCIrb-1eAHDR/view?usp=sharing",
           "https://drive.google.com/file/d/1MBAD279i0uMgeCCdjK3-fU3XyGhb6AeY/view?usp=sharing",
           "https://github.com/kunalmaurya-17-24",
-          "https://www.linkedin.com/in/kunal-maurya-a58035304/"
+          "https://www.linkedin.com/in/kunal-maurya-a58035304/",
+          "https://github.com/kunalmaurya-17-24/YouTube-Multimodal-RAG-Pipeline"
         ],
         "remoteAvailability": "Not requested by this local suite"
       }
@@ -148,16 +151,76 @@
     {
       "name": "Resume HTTP response and real browser download",
       "status": "passed",
-      "durationMs": 168,
+      "durationMs": 273,
       "detail": {
-        "bytes": 80173,
+        "bytes": 83832,
         "filename": "Kunal-Maurya-Resume.pdf"
       }
     },
     {
-      "name": "Real audio controls, preferences and silent reload",
+      "name": "New CV facts replace superseded resume content",
       "status": "passed",
-      "durationMs": 1876
+      "durationMs": 35,
+      "detail": {
+        "employmentRecords": 3,
+        "projects": [
+          "crosssense",
+          "sentinel",
+          "youtube"
+        ],
+        "university": "Guru Gobind Singh Indraprastha University",
+        "cgpa": "7.47/10"
+      }
+    },
+    {
+      "name": "MP3 playlist selection, wrapping and no autoplay",
+      "status": "passed",
+      "durationMs": 793,
+      "detail": {
+        "tracks": [
+          {
+            "id": "life-will-change",
+            "label": "Life Will Change"
+          },
+          {
+            "id": "last-surprise",
+            "label": "Last Surprise"
+          }
+        ],
+        "persistedSelection": "last-surprise",
+        "initialPlayback": "off"
+      }
+    },
+    {
+      "name": "Real MP3 decoding, controls, preferences and background pause",
+      "status": "passed",
+      "durationMs": 2022,
+      "detail": {
+        "lastSurprise": {
+          "source": "/audio/Persona 5 - Last Surprise.mp3",
+          "duration": 235.891519,
+          "currentTime": 0.02,
+          "error": null
+        },
+        "lifeWillChange": {
+          "source": "/audio/Persona 5 - Life Will Change (中英歌詞).mp3",
+          "duration": 262.153288,
+          "currentTime": 0.020737,
+          "error": null
+        },
+        "persistedVolume": 41,
+        "persistedMute": true,
+        "reloadPlayback": "off"
+      }
+    },
+    {
+      "name": "Axe expanded music controls WCAG 2.2 AA",
+      "status": "passed",
+      "durationMs": 356,
+      "detail": {
+        "passedRules": 32,
+        "manualReviewRules": 1
+      }
     },
     {
       "name": "Decorative motion pause control",
@@ -167,21 +230,21 @@
     {
       "name": "Education details and clipboard action",
       "status": "passed",
-      "durationMs": 56
+      "durationMs": 94
     },
     {
       "name": "Axe desktop page WCAG 2.2 AA",
       "status": "passed",
-      "durationMs": 171,
+      "durationMs": 125,
       "detail": {
-        "passedRules": 26,
-        "manualReviewRules": 2
+        "passedRules": 29,
+        "manualReviewRules": 1
       }
     },
     {
       "name": "Axe expanded navigation WCAG 2.2 AA",
       "status": "passed",
-      "durationMs": 42,
+      "durationMs": 71,
       "detail": {
         "passedRules": 13,
         "manualReviewRules": 1
@@ -190,7 +253,7 @@
     {
       "name": "Axe case dialog WCAG 2.2 AA",
       "status": "passed",
-      "durationMs": 39,
+      "durationMs": 80,
       "detail": {
         "passedRules": 15,
         "manualReviewRules": 0
@@ -199,36 +262,45 @@
     {
       "name": "Brief scroll performance trace",
       "status": "passed",
-      "durationMs": 875,
+      "durationMs": 945,
       "detail": {
         "file": "docs/performance-scroll-trace.json",
-        "elapsedMs": 628.5999999996275,
-        "traceBytes": 3870382,
+        "elapsedMs": 630.3999999994412,
+        "traceBytes": 4013495,
         "rendererIdentified": true,
         "rendererTasksOver50ms": [],
-        "longestRendererTaskMs": 2.411,
-        "layoutEvents": 43,
-        "paintEvents": 156
+        "longestRendererTaskMs": 6.924,
+        "layoutEvents": 40,
+        "paintEvents": 144
       }
     },
     {
       "name": "Axe mobile page WCAG 2.2 AA",
       "status": "passed",
-      "durationMs": 171,
+      "durationMs": 300,
       "detail": {
-        "passedRules": 26,
-        "manualReviewRules": 2
+        "passedRules": 29,
+        "manualReviewRules": 1
       }
     },
     {
       "name": "Mobile touch navigation and project dialog",
       "status": "passed",
-      "durationMs": 3153
+      "durationMs": 3132
+    },
+    {
+      "name": "Axe mobile music controls WCAG 2.2 AA",
+      "status": "passed",
+      "durationMs": 136,
+      "detail": {
+        "passedRules": 32,
+        "manualReviewRules": 1
+      }
     },
     {
       "name": "Reduced motion removes decorative animation and preserves content",
       "status": "passed",
-      "durationMs": 1994,
+      "durationMs": 2069,
       "detail": {
         "running": [],
         "hiddenReveals": 0,
@@ -239,7 +311,7 @@
     {
       "name": "Denied localStorage and sessionStorage remain functional",
       "status": "passed",
-      "durationMs": 2331
+      "durationMs": 2332
     },
     {
       "name": "Console, uncaught errors, HTTP failures and broken requests",
@@ -301,21 +373,28 @@
   ],
   "accessibility": [
     {
+      "name": "desktop-audio-settings",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "count": 17
+        }
+      ],
+      "passes": 32
+    },
+    {
       "name": "desktop-page",
       "violations": [],
       "incomplete": [
         {
-          "id": "aria-prohibited-attr",
-          "help": "Elements must only use permitted ARIA attributes",
-          "count": 1
-        },
-        {
           "id": "color-contrast",
           "help": "Elements must meet minimum color contrast ratio thresholds",
-          "count": 45
+          "count": 52
         }
       ],
-      "passes": 26
+      "passes": 29
     },
     {
       "name": "desktop-menu",
@@ -340,17 +419,24 @@
       "violations": [],
       "incomplete": [
         {
-          "id": "aria-prohibited-attr",
-          "help": "Elements must only use permitted ARIA attributes",
-          "count": 1
-        },
+          "id": "color-contrast",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "count": 43
+        }
+      ],
+      "passes": 29
+    },
+    {
+      "name": "mobile-audio-settings",
+      "violations": [],
+      "incomplete": [
         {
           "id": "color-contrast",
           "help": "Elements must meet minimum color contrast ratio thresholds",
-          "count": 39
+          "count": 45
         }
       ],
-      "passes": 26
+      "passes": 32
     }
   ],
   "performance": [
@@ -358,81 +444,121 @@
       "viewport": "1920×1080",
       "navigation": [
         {
-          "domContentLoadedMs": 64.20000000111759,
-          "transferBytes": 889
+          "domContentLoadedMs": 61.799999999813735,
+          "transferBytes": 1431
         }
       ],
       "largestContentfulPaint": {
-        "startTimeMs": 580,
-        "renderTimeMs": 580,
+        "startTimeMs": 416,
+        "renderTimeMs": 416,
         "loadTimeMs": 0,
-        "size": 431934,
+        "size": 380443,
         "element": "span"
       },
       "resources": [
         {
-          "name": "/assets/index-BSIlUtZC.js",
+          "name": "/@vite/client",
           "type": "script",
-          "transferredBytes": 12908,
-          "encodedBytes": 12608,
-          "decodedBytes": 33455,
-          "durationMs": 10.299999998882413
+          "transferredBytes": 179308,
+          "encodedBytes": 179008,
+          "decodedBytes": 179008,
+          "durationMs": 11.699999999254942
         },
         {
-          "name": "/assets/index-BWi9MHGr.css",
-          "type": "link",
-          "transferredBytes": 10548,
-          "encodedBytes": 10248,
-          "decodedBytes": 46511,
-          "durationMs": 10.699999999254942
+          "name": "/src/main.ts",
+          "type": "script",
+          "transferredBytes": 66351,
+          "encodedBytes": 66051,
+          "decodedBytes": 66051,
+          "durationMs": 12.799999999813735
         },
         {
-          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
-          "type": "css",
-          "transferredBytes": 13688,
-          "encodedBytes": 13388,
-          "decodedBytes": 13388,
-          "durationMs": 9
+          "name": "/node_modules/vite/dist/client/env.mjs",
+          "type": "script",
+          "transferredBytes": 3778,
+          "encodedBytes": 3478,
+          "decodedBytes": 3478,
+          "durationMs": 1.3999999994412065
+        },
+        {
+          "name": "/src/fonts.css",
+          "type": "script",
+          "transferredBytes": 1889,
+          "encodedBytes": 1589,
+          "decodedBytes": 1589,
+          "durationMs": 2.800000000745058
+        },
+        {
+          "name": "/src/data.ts",
+          "type": "script",
+          "transferredBytes": 20172,
+          "encodedBytes": 19872,
+          "decodedBytes": 19872,
+          "durationMs": 3.300000000745058
+        },
+        {
+          "name": "/src/style.css",
+          "type": "script",
+          "transferredBytes": 50994,
+          "encodedBytes": 50694,
+          "decodedBytes": 50694,
+          "durationMs": 3
+        },
+        {
+          "name": "/src/audio.ts",
+          "type": "script",
+          "transferredBytes": 66636,
+          "encodedBytes": 66336,
+          "decodedBytes": 66336,
+          "durationMs": 4.7999999998137355
         },
         {
           "name": "/audio/track.json",
           "type": "fetch",
-          "transferredBytes": 501,
-          "encodedBytes": 201,
-          "decodedBytes": 201,
-          "durationMs": 4.300000000745058
+          "transferredBytes": 691,
+          "encodedBytes": 391,
+          "decodedBytes": 391,
+          "durationMs": 2.5
         },
         {
-          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2",
           "type": "css",
-          "transferredBytes": 13612,
-          "encodedBytes": 13312,
-          "decodedBytes": 13312,
-          "durationMs": 9.300000000745058
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 108.90000000037253
         },
         {
-          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
-          "type": "css",
-          "transferredBytes": 13584,
-          "encodedBytes": 13284,
-          "decodedBytes": 13284,
-          "durationMs": 9.699999999254942
-        },
-        {
-          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2",
           "type": "css",
           "transferredBytes": 22764,
           "encodedBytes": 22464,
           "decodedBytes": 22464,
-          "durationMs": 10.599999999627471
+          "durationMs": 111.5
         },
         {
-          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 111.6000000005588
+        },
+        {
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-500-normal.woff2",
+          "type": "css",
+          "transferredBytes": 13612,
+          "encodedBytes": 13312,
+          "decodedBytes": 13312,
+          "durationMs": 111.70000000018626
+        },
+        {
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2",
           "type": "css",
           "transferredBytes": 22744,
           "encodedBytes": 22444,
           "decodedBytes": 22444,
-          "durationMs": 10
+          "durationMs": 111.79999999981374
         },
         {
           "name": "/favicon.svg",
@@ -440,93 +566,138 @@
           "transferredBytes": 480,
           "encodedBytes": 180,
           "decodedBytes": 180,
-          "durationMs": 3.300000000745058
+          "durationMs": 2.699999999254942
         }
       ],
-      "resourceTransferBytes": 110829,
-      "longTasks": [],
-      "cumulativeLayoutShift": 0.04587620658593045,
-      "postScrollCumulativeLayoutShift": 0.04587620658593045
+      "resourceTransferBytes": 476691,
+      "longTasks": [
+        {
+          "duration": 126,
+          "startTime": 41.89999999944121
+        }
+      ],
+      "cumulativeLayoutShift": 0,
+      "postScrollCumulativeLayoutShift": 0
     },
     {
       "viewport": "1440×900",
       "navigation": [
         {
-          "domContentLoadedMs": 50.30000000074506,
-          "transferBytes": 889
+          "domContentLoadedMs": 47.39999999944121,
+          "transferBytes": 1431
         }
       ],
       "largestContentfulPaint": {
-        "startTimeMs": 216,
-        "renderTimeMs": 216,
+        "startTimeMs": 164,
+        "renderTimeMs": 164,
         "loadTimeMs": 0,
         "size": 246186,
         "element": "span"
       },
       "resources": [
         {
-          "name": "/assets/index-BSIlUtZC.js",
+          "name": "/@vite/client",
           "type": "script",
-          "transferredBytes": 12908,
-          "encodedBytes": 12608,
-          "decodedBytes": 33455,
-          "durationMs": 10.199999999254942
+          "transferredBytes": 179308,
+          "encodedBytes": 179008,
+          "decodedBytes": 179008,
+          "durationMs": 10.600000000558794
         },
         {
-          "name": "/assets/index-BWi9MHGr.css",
-          "type": "link",
-          "transferredBytes": 10548,
-          "encodedBytes": 10248,
-          "decodedBytes": 46511,
-          "durationMs": 9.600000001490116
+          "name": "/src/main.ts",
+          "type": "script",
+          "transferredBytes": 66351,
+          "encodedBytes": 66051,
+          "decodedBytes": 66051,
+          "durationMs": 11.5
         },
         {
-          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
-          "type": "css",
-          "transferredBytes": 13688,
-          "encodedBytes": 13388,
-          "decodedBytes": 13388,
-          "durationMs": 11.399999998509884
+          "name": "/node_modules/vite/dist/client/env.mjs",
+          "type": "script",
+          "transferredBytes": 3778,
+          "encodedBytes": 3478,
+          "decodedBytes": 3478,
+          "durationMs": 2.900000000372529
+        },
+        {
+          "name": "/src/fonts.css",
+          "type": "script",
+          "transferredBytes": 1889,
+          "encodedBytes": 1589,
+          "decodedBytes": 1589,
+          "durationMs": 2.7999999998137355
+        },
+        {
+          "name": "/src/style.css",
+          "type": "script",
+          "transferredBytes": 50994,
+          "encodedBytes": 50694,
+          "decodedBytes": 50694,
+          "durationMs": 4.1000000005587935
+        },
+        {
+          "name": "/src/data.ts",
+          "type": "script",
+          "transferredBytes": 20172,
+          "encodedBytes": 19872,
+          "decodedBytes": 19872,
+          "durationMs": 4.199999999254942
+        },
+        {
+          "name": "/src/audio.ts",
+          "type": "script",
+          "transferredBytes": 66636,
+          "encodedBytes": 66336,
+          "decodedBytes": 66336,
+          "durationMs": 5
         },
         {
           "name": "/audio/track.json",
           "type": "fetch",
-          "transferredBytes": 501,
-          "encodedBytes": 201,
-          "decodedBytes": 201,
-          "durationMs": 3.099999999627471
+          "transferredBytes": 691,
+          "encodedBytes": 391,
+          "decodedBytes": 391,
+          "durationMs": 2.2000000001862645
         },
         {
-          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 90
+        },
+        {
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-500-normal.woff2",
           "type": "css",
           "transferredBytes": 13612,
           "encodedBytes": 13312,
           "decodedBytes": 13312,
-          "durationMs": 5.5
+          "durationMs": 90.5
         },
         {
-          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2",
           "type": "css",
           "transferredBytes": 13584,
           "encodedBytes": 13284,
           "decodedBytes": 13284,
-          "durationMs": 7.400000000372529
+          "durationMs": 90.90000000037253
         },
         {
-          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2",
           "type": "css",
           "transferredBytes": 22764,
           "encodedBytes": 22464,
           "decodedBytes": 22464,
-          "durationMs": 10.400000000372529
+          "durationMs": 91.09999999962747
         },
         {
-          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2",
           "type": "css",
           "transferredBytes": 22744,
           "encodedBytes": 22444,
           "decodedBytes": 22444,
-          "durationMs": 10.599999999627471
+          "durationMs": 91.30000000074506
         },
         {
           "name": "/favicon.svg",
@@ -534,98 +705,138 @@
           "transferredBytes": 480,
           "encodedBytes": 180,
           "decodedBytes": 180,
-          "durationMs": 3
+          "durationMs": 2.2999999998137355
         }
       ],
-      "resourceTransferBytes": 110829,
+      "resourceTransferBytes": 476691,
       "longTasks": [
         {
-          "duration": 50,
-          "startTime": 189.5
+          "duration": 101,
+          "startTime": 34.200000000186265
         }
       ],
-      "cumulativeLayoutShift": 0.042656571547190346,
-      "postScrollCumulativeLayoutShift": 0.042656571547190346
+      "cumulativeLayoutShift": 0.0486049473177749,
+      "postScrollCumulativeLayoutShift": 0.0486049473177749
     },
     {
       "viewport": "1366×768",
       "navigation": [
         {
-          "domContentLoadedMs": 36.80000000074506,
-          "transferBytes": 889
+          "domContentLoadedMs": 44.09999999962747,
+          "transferBytes": 1431
         }
       ],
       "largestContentfulPaint": {
-        "startTimeMs": 184,
-        "renderTimeMs": 184,
+        "startTimeMs": 152,
+        "renderTimeMs": 152,
         "loadTimeMs": 0,
         "size": 221343,
         "element": "span"
       },
       "resources": [
         {
-          "name": "/assets/index-BSIlUtZC.js",
+          "name": "/@vite/client",
           "type": "script",
-          "transferredBytes": 12908,
-          "encodedBytes": 12608,
-          "decodedBytes": 33455,
-          "durationMs": 9
+          "transferredBytes": 179308,
+          "encodedBytes": 179008,
+          "decodedBytes": 179008,
+          "durationMs": 10
         },
         {
-          "name": "/assets/index-BWi9MHGr.css",
-          "type": "link",
-          "transferredBytes": 10548,
-          "encodedBytes": 10248,
-          "decodedBytes": 46511,
-          "durationMs": 9.099999999627471
+          "name": "/src/main.ts",
+          "type": "script",
+          "transferredBytes": 66351,
+          "encodedBytes": 66051,
+          "decodedBytes": 66051,
+          "durationMs": 11
+        },
+        {
+          "name": "/node_modules/vite/dist/client/env.mjs",
+          "type": "script",
+          "transferredBytes": 3778,
+          "encodedBytes": 3478,
+          "decodedBytes": 3478,
+          "durationMs": 2.699999999254942
+        },
+        {
+          "name": "/src/fonts.css",
+          "type": "script",
+          "transferredBytes": 1889,
+          "encodedBytes": 1589,
+          "decodedBytes": 1589,
+          "durationMs": 2.699999999254942
+        },
+        {
+          "name": "/src/data.ts",
+          "type": "script",
+          "transferredBytes": 20172,
+          "encodedBytes": 19872,
+          "decodedBytes": 19872,
+          "durationMs": 4.099999999627471
+        },
+        {
+          "name": "/src/style.css",
+          "type": "script",
+          "transferredBytes": 50994,
+          "encodedBytes": 50694,
+          "decodedBytes": 50694,
+          "durationMs": 3.7000000001862645
+        },
+        {
+          "name": "/src/audio.ts",
+          "type": "script",
+          "transferredBytes": 66636,
+          "encodedBytes": 66336,
+          "decodedBytes": 66336,
+          "durationMs": 4.900000000372529
         },
         {
           "name": "/audio/track.json",
           "type": "fetch",
-          "transferredBytes": 501,
-          "encodedBytes": 201,
-          "decodedBytes": 201,
-          "durationMs": 2.699999999254942
+          "transferredBytes": 691,
+          "encodedBytes": 391,
+          "decodedBytes": 391,
+          "durationMs": 2.2000000001862645
         },
         {
-          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2",
           "type": "css",
           "transferredBytes": 13688,
           "encodedBytes": 13388,
           "decodedBytes": 13388,
-          "durationMs": 3.599999999627471
+          "durationMs": 88.1000000005588
         },
         {
-          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
-          "type": "css",
-          "transferredBytes": 22764,
-          "encodedBytes": 22464,
-          "decodedBytes": 22464,
-          "durationMs": 123.10000000149012
-        },
-        {
-          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
-          "type": "css",
-          "transferredBytes": 13584,
-          "encodedBytes": 13284,
-          "decodedBytes": 13284,
-          "durationMs": 123.90000000037253
-        },
-        {
-          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-500-normal.woff2",
           "type": "css",
           "transferredBytes": 13612,
           "encodedBytes": 13312,
           "decodedBytes": 13312,
-          "durationMs": 124.19999999925494
+          "durationMs": 88.5
         },
         {
-          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 88.09999999962747
+        },
+        {
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 88.29999999981374
+        },
+        {
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2",
           "type": "css",
           "transferredBytes": 22744,
           "encodedBytes": 22444,
           "decodedBytes": 22444,
-          "durationMs": 124.39999999850988
+          "durationMs": 88.5
         },
         {
           "name": "/favicon.svg",
@@ -633,93 +844,138 @@
           "transferredBytes": 480,
           "encodedBytes": 180,
           "decodedBytes": 180,
-          "durationMs": 3.900000000372529
+          "durationMs": 2
         }
       ],
-      "resourceTransferBytes": 110829,
-      "longTasks": [],
-      "cumulativeLayoutShift": 0.04281617263104607,
-      "postScrollCumulativeLayoutShift": 0.04281617263104607
+      "resourceTransferBytes": 476691,
+      "longTasks": [
+        {
+          "duration": 100,
+          "startTime": 31.199999999254942
+        }
+      ],
+      "cumulativeLayoutShift": 0.04867986527781788,
+      "postScrollCumulativeLayoutShift": 0.04867986527781788
     },
     {
       "viewport": "768×1024",
       "navigation": [
         {
-          "domContentLoadedMs": 49.09999999962747,
-          "transferBytes": 889
+          "domContentLoadedMs": 45.5,
+          "transferBytes": 1431
         }
       ],
       "largestContentfulPaint": {
-        "startTimeMs": 172,
-        "renderTimeMs": 172,
+        "startTimeMs": 148,
+        "renderTimeMs": 148,
         "loadTimeMs": 0,
         "size": 126654,
         "element": "span"
       },
       "resources": [
         {
-          "name": "/assets/index-BSIlUtZC.js",
+          "name": "/@vite/client",
           "type": "script",
-          "transferredBytes": 12908,
-          "encodedBytes": 12608,
-          "decodedBytes": 33455,
-          "durationMs": 9.099999999627471
+          "transferredBytes": 179308,
+          "encodedBytes": 179008,
+          "decodedBytes": 179008,
+          "durationMs": 12.900000000372529
         },
         {
-          "name": "/assets/index-BWi9MHGr.css",
-          "type": "link",
-          "transferredBytes": 10548,
-          "encodedBytes": 10248,
-          "decodedBytes": 46511,
-          "durationMs": 9.200000001117587
+          "name": "/src/main.ts",
+          "type": "script",
+          "transferredBytes": 66351,
+          "encodedBytes": 66051,
+          "decodedBytes": 66051,
+          "durationMs": 13.699999999254942
         },
         {
-          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
-          "type": "css",
-          "transferredBytes": 13688,
-          "encodedBytes": 13388,
-          "decodedBytes": 13388,
-          "durationMs": 8.599999999627471
+          "name": "/src/fonts.css",
+          "type": "script",
+          "transferredBytes": 1889,
+          "encodedBytes": 1589,
+          "decodedBytes": 1589,
+          "durationMs": 2.099999999627471
+        },
+        {
+          "name": "/src/data.ts",
+          "type": "script",
+          "transferredBytes": 20172,
+          "encodedBytes": 19872,
+          "decodedBytes": 19872,
+          "durationMs": 2.7999999998137355
+        },
+        {
+          "name": "/src/style.css",
+          "type": "script",
+          "transferredBytes": 50994,
+          "encodedBytes": 50694,
+          "decodedBytes": 50694,
+          "durationMs": 2.5
+        },
+        {
+          "name": "/src/audio.ts",
+          "type": "script",
+          "transferredBytes": 66636,
+          "encodedBytes": 66336,
+          "decodedBytes": 66336,
+          "durationMs": 3.5
+        },
+        {
+          "name": "/node_modules/vite/dist/client/env.mjs",
+          "type": "script",
+          "transferredBytes": 3778,
+          "encodedBytes": 3478,
+          "decodedBytes": 3478,
+          "durationMs": 3.599999999627471
         },
         {
           "name": "/audio/track.json",
           "type": "fetch",
-          "transferredBytes": 501,
-          "encodedBytes": 201,
-          "decodedBytes": 201,
-          "durationMs": 2.5
+          "transferredBytes": 691,
+          "encodedBytes": 391,
+          "decodedBytes": 391,
+          "durationMs": 2
         },
         {
-          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2",
+          "type": "css",
+          "transferredBytes": 13688,
+          "encodedBytes": 13388,
+          "decodedBytes": 13388,
+          "durationMs": 83.59999999962747
+        },
+        {
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-500-normal.woff2",
           "type": "css",
           "transferredBytes": 13612,
           "encodedBytes": 13312,
           "decodedBytes": 13312,
-          "durationMs": 5
+          "durationMs": 83.29999999981374
         },
         {
-          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2",
           "type": "css",
           "transferredBytes": 13584,
           "encodedBytes": 13284,
           "decodedBytes": 13284,
-          "durationMs": 6.799999998882413
+          "durationMs": 83.70000000018626
         },
         {
-          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2",
           "type": "css",
           "transferredBytes": 22764,
           "encodedBytes": 22464,
           "decodedBytes": 22464,
-          "durationMs": 7.899999998509884
+          "durationMs": 83.79999999981374
         },
         {
-          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2",
           "type": "css",
           "transferredBytes": 22744,
           "encodedBytes": 22444,
           "decodedBytes": 22444,
-          "durationMs": 8.099999999627471
+          "durationMs": 84.19999999925494
         },
         {
           "name": "/favicon.svg",
@@ -727,93 +983,138 @@
           "transferredBytes": 480,
           "encodedBytes": 180,
           "decodedBytes": 180,
-          "durationMs": 2.600000001490116
+          "durationMs": 2.2999999998137355
         }
       ],
-      "resourceTransferBytes": 110829,
-      "longTasks": [],
-      "cumulativeLayoutShift": 0.03321127680828795,
-      "postScrollCumulativeLayoutShift": 0.03321127680828795
+      "resourceTransferBytes": 476691,
+      "longTasks": [
+        {
+          "duration": 96,
+          "startTime": 32.799999999813735
+        }
+      ],
+      "cumulativeLayoutShift": 0.04167748968272159,
+      "postScrollCumulativeLayoutShift": 0.04167748968272159
     },
     {
       "viewport": "390×844",
       "navigation": [
         {
-          "domContentLoadedMs": 29.5,
-          "transferBytes": 889
+          "domContentLoadedMs": 47.89999999944121,
+          "transferBytes": 1431
         }
       ],
       "largestContentfulPaint": {
-        "startTimeMs": 144,
-        "renderTimeMs": 144,
+        "startTimeMs": 152,
+        "renderTimeMs": 152,
         "loadTimeMs": 0,
         "size": 41170,
         "element": "span"
       },
       "resources": [
         {
-          "name": "/assets/index-BSIlUtZC.js",
+          "name": "/@vite/client",
           "type": "script",
-          "transferredBytes": 12908,
-          "encodedBytes": 12608,
-          "decodedBytes": 33455,
-          "durationMs": 6.800000000745058
+          "transferredBytes": 179308,
+          "encodedBytes": 179008,
+          "decodedBytes": 179008,
+          "durationMs": 12.300000000745058
         },
         {
-          "name": "/assets/index-BWi9MHGr.css",
-          "type": "link",
-          "transferredBytes": 10548,
-          "encodedBytes": 10248,
-          "decodedBytes": 46511,
-          "durationMs": 7.099999999627471
+          "name": "/src/main.ts",
+          "type": "script",
+          "transferredBytes": 66351,
+          "encodedBytes": 66051,
+          "decodedBytes": 66051,
+          "durationMs": 14.099999999627471
+        },
+        {
+          "name": "/node_modules/vite/dist/client/env.mjs",
+          "type": "script",
+          "transferredBytes": 3778,
+          "encodedBytes": 3478,
+          "decodedBytes": 3478,
+          "durationMs": 2.5
+        },
+        {
+          "name": "/src/fonts.css",
+          "type": "script",
+          "transferredBytes": 1889,
+          "encodedBytes": 1589,
+          "decodedBytes": 1589,
+          "durationMs": 2.8999999994412065
+        },
+        {
+          "name": "/src/style.css",
+          "type": "script",
+          "transferredBytes": 50994,
+          "encodedBytes": 50694,
+          "decodedBytes": 50694,
+          "durationMs": 3.699999999254942
+        },
+        {
+          "name": "/src/data.ts",
+          "type": "script",
+          "transferredBytes": 20172,
+          "encodedBytes": 19872,
+          "decodedBytes": 19872,
+          "durationMs": 3.7000000001862645
+        },
+        {
+          "name": "/src/audio.ts",
+          "type": "script",
+          "transferredBytes": 66636,
+          "encodedBytes": 66336,
+          "decodedBytes": 66336,
+          "durationMs": 4.5
         },
         {
           "name": "/audio/track.json",
           "type": "fetch",
-          "transferredBytes": 501,
-          "encodedBytes": 201,
-          "decodedBytes": 201,
-          "durationMs": 2.399999998509884
+          "transferredBytes": 691,
+          "encodedBytes": 391,
+          "decodedBytes": 391,
+          "durationMs": 2.900000000372529
         },
         {
-          "name": "/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-400-normal.woff2",
           "type": "css",
           "transferredBytes": 13688,
           "encodedBytes": 13388,
           "decodedBytes": 13388,
-          "durationMs": 4.400000000372529
+          "durationMs": 88.29999999981374
         },
         {
-          "name": "/assets/space-grotesk-latin-600-normal-DjKNqYRj.woff2",
-          "type": "css",
-          "transferredBytes": 13584,
-          "encodedBytes": 13284,
-          "decodedBytes": 13284,
-          "durationMs": 4.800000000745058
-        },
-        {
-          "name": "/assets/barlow-condensed-latin-800-normal-BKzMuPgK.woff2",
-          "type": "css",
-          "transferredBytes": 22764,
-          "encodedBytes": 22464,
-          "decodedBytes": 22464,
-          "durationMs": 5.099999999627471
-        },
-        {
-          "name": "/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-500-normal.woff2",
           "type": "css",
           "transferredBytes": 13612,
           "encodedBytes": 13312,
           "decodedBytes": 13312,
-          "durationMs": 5.200000001117587
+          "durationMs": 88.6000000005588
         },
         {
-          "name": "/assets/barlow-condensed-latin-700-normal-v1xN8_Wq.woff2",
+          "name": "/node_modules/@fontsource/space-grotesk/files/space-grotesk-latin-600-normal.woff2",
+          "type": "css",
+          "transferredBytes": 13584,
+          "encodedBytes": 13284,
+          "decodedBytes": 13284,
+          "durationMs": 88.79999999981374
+        },
+        {
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2",
+          "type": "css",
+          "transferredBytes": 22764,
+          "encodedBytes": 22464,
+          "decodedBytes": 22464,
+          "durationMs": 89.09999999962747
+        },
+        {
+          "name": "/node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-700-normal.woff2",
           "type": "css",
           "transferredBytes": 22744,
           "encodedBytes": 22444,
           "decodedBytes": 22444,
-          "durationMs": 5.199999999254942
+          "durationMs": 89.30000000074506
         },
         {
           "name": "/favicon.svg",
@@ -821,29 +1122,29 @@
           "transferredBytes": 480,
           "encodedBytes": 180,
           "decodedBytes": 180,
-          "durationMs": 2.600000001490116
+          "durationMs": 1.900000000372529
         }
       ],
-      "resourceTransferBytes": 110829,
+      "resourceTransferBytes": 476691,
       "longTasks": [
         {
-          "duration": 91,
-          "startTime": 34
+          "duration": 103,
+          "startTime": 33.299999999813735
         }
       ],
-      "cumulativeLayoutShift": 0.03925010988324607,
-      "postScrollCumulativeLayoutShift": 0.03925010988324607
+      "cumulativeLayoutShift": 0.04718947490315465,
+      "postScrollCumulativeLayoutShift": 0.04718947490315465
     }
   ],
   "scrollTrace": {
     "file": "docs/performance-scroll-trace.json",
-    "elapsedMs": 628.5999999996275,
-    "traceBytes": 3870382,
+    "elapsedMs": 630.3999999994412,
+    "traceBytes": 4013495,
     "rendererIdentified": true,
     "rendererTasksOver50ms": [],
-    "longestRendererTaskMs": 2.411,
-    "layoutEvents": 43,
-    "paintEvents": 156
+    "longestRendererTaskMs": 6.924,
+    "layoutEvents": 40,
+    "paintEvents": 144
   },
   "diagnostics": [],
   "limitations": [
@@ -851,6 +1152,6 @@
     "Axe detects a subset of accessibility problems; incomplete rules require manual visual review. No full WCAG certification is claimed.",
     "External GitHub, LinkedIn and certificate URLs are checked for valid destination syntax and safe new-tab attributes. Remote availability and source-content verification are outside this local regression suite.",
     "Performance timings are local observations, not Lighthouse scores or representative field measurements.",
-    "Audio engine state and scheduled playback are tested; headless execution does not constitute a human listening review."
+    "Both configured MP3 files are tested for browser decoding, advancing playback time and control behavior; headless execution does not constitute a human listening review or verification of distribution rights."
   ]
 }
